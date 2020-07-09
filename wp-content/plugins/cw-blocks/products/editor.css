@@ -1,0 +1,55 @@
+.product-card__buttons {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 99999;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.product-card__buttons .button {
+	margin: 1em 0 1em 1em;
+}
+
+.product-card .editor-url-input__button-modal1 {
+	bottom: 0;
+	position: absolute;
+	z-index: 99999;
+}
+
+.product-cards__container {
+	display: flex;
+	list-style-type: none !important;
+	padding: 0;
+	margin: 0;
+	width: 94%;
+}
+
+.product-card {
+	position: relative;
+	width: 25%;
+	padding-right: 10px;
+}
+
+.product-card:last-child {
+	border-right: none;
+}
+
+.product-card .editor-url-input__button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+}
+
+.product-card__footer {
+	vertical-align: middle;
+}
+
+.product-card__image {
+	position: relative;
+}
+
+.product-card__container {
+	height: auto !important;
+}

@@ -1,0 +1,186 @@
+/* -------- Columns -------- */
+
+.col__buttons {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.col__buttons .button {
+	margin: 10px 0 10px 10px;
+	float: left;
+}
+
+.col__buttons .editor-url-input__button {
+	float: left;
+	margin: 7px 0 5px 5px;
+}
+
+.col__buttons .editor-url-input__button-modal {
+	position: absolute;
+}
+
+.col__title {
+	font-size: 1.2em;
+  padding-bottom: 10px;
+	margin: 0 !important;
+}
+
+.cols {
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.cols__container {
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+
+}
+
+.cols-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px 5% 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.col__image, .col__video {
+  display: flex;
+	flex-grow: 0;
+  width: 90%;
+	margin: 20px auto 0;
+  height: auto;
+  max-width: none;
+}
+
+.col__video {
+	display: block;
+}
+
+.col__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  text-align: center;
+  float: none;
+  width: 90%;
+	margin: 20px auto 0;
+}
+
+.col__content p {
+	font-size: 0.9em !important;
+	line-height: 1.6 !important;
+	margin-bottom: 20px !important;
+}
+
+.col__link {
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 15px 30px;
+  margin-top: auto !important;
+  display: inline-block;
+  align-self: center;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .2);
+  transition: .2s;
+  width: auto !important;
+  text-decoration: none;
+}
+
+.col__link:hover {
+  background-color: white;
+  color: #c30c15;
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .2);
+  transition: .2s;
+  text-decoration: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  .cols {
+    margin: 0 20px;
+  }
+
+  .cols-header {
+    padding: 30px 5% 20px;
+  }
+
+  .cols__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+	.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 33.333%;
+		max-width: 33.333%;
+  }
+
+  .cols--4 .col, .cols--2 .col{
+    min-width: 50%;
+  }
+
+	.col__image, .col__video {
+	  width: calc(100% - 40px);
+		margin: 20px 20px 0;
+	}
+
+}
+
+
+@media only screen and (min-width: 1600px) {
+
+	.cols {
+		margin: 0 auto;
+	}
+
+	.col {
+		min-width: 0;
+	}
+
+	.cols--4 .col, .cols--2 .col{
+		min-width: 0;
+	}
+
+
+	.cols__content {
+		padding: 20px;
+	}
+
+}
+
+
+/* Further tweaks */
+
+/* TODO: Reduce specificity of this selector... also provide description please */
+.wp-block-cw-blocks-columns.cols--4.max-img-col-teaser img {
+    max-width: 175px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+	/* Constrain columns row 2 of covers to 33% width to match previous row  - Will be fixed with multi-row column fix */
+	.abtest-papers-covers .cols--2 .col {
+		min-width: 33.333%;
+		max-width: 33.333%;
+	}
+}
+
+

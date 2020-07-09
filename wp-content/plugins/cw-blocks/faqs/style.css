@@ -1,0 +1,26 @@
+/* Faqs */
+
+.faqs {
+}
+
+.faqs__container {
+  max-width: 1000px !important;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.faq {
+  background-color: white;
+  border-left: 3px solid #333;
+  padding: 20px 20px 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+
+.faq__question {
+
+}
+
+.faq__answer {
+  margin: 0;
+}

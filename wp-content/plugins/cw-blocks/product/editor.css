@@ -1,0 +1,53 @@
+/**
+ * Note that these styles are loaded *after* common styles, so that
+ * editor-specific styles using the same selectors will take precedence.
+ */
+
+.col__video {
+	display: block;
+}
+
+.wistia_responsive_wrapper::before {
+content: '';
+position: absolute;
+top: auto;
+height: 100%;
+background: #efefef;
+margin: 0 auto;
+left: auto;
+width: 100%;
+text-align: center;
+right: auto;
+}
+
+
+.wistia_responsive_wrapper::after {
+content: '\f04b';
+position: absolute;
+top: 50%;
+height: 100%;
+background: #c30c15;
+margin: 0;
+margin-left: -25px;
+margin-top: -25px;
+left: 50%;
+width: 50px;
+height: 50px;
+text-align: center;
+right: 50%;
+vertical-align: middle;
+color: #fff;
+font-family: 'fontawesome';
+line-height: 50px;
+font-size: 25px;
+opacity: 0.5;
+border-radius: 3px;
+}
+
+
+.wistia_embed {
+	font-size: 0.8em;
+	text-align: left;
+	padding: 10px 15px;
+	text-align: right;
+}

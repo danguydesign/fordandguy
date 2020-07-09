@@ -1,0 +1,25 @@
+.squares__buttons {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.squares__buttons .button {
+	margin: 0.75em 0 0.75em 0.75em;
+}
+
+.squares__footer {
+	text-align: center;
+}
+
+.squares .editor-url-input__button-modal {
+	bottom: 0;
+	position: absolute;
+	z-index: 99999;
+}
+
+@media only screen and (min-width: 768px) {
+	.squares__container {
+		min-height: auto !important;
+	}
+}

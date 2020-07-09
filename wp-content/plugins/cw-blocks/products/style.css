@@ -1,0 +1,113 @@
+/* Inspiration */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+/* -------- Product Cards Teaser -------- */
+
+.product-card,
+.product-card-img {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(246, 246, 246, 0);
+  transition: background-color .5s ease-in-out;
+}
+
+.product-card:hover {
+  background: rgba(246, 246, 246, 1);
+}
+
+.product-card::after {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #222;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  transition: transform .5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.product-card:hover::after {
+  transform: translateX(0);
+}
+
+.product-text-box {
+  padding: 10px 15px 12px;
+}
+
+.product-card .product-card__details {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.product-card .product-card__details .product-card__button {
+	text-decoration: underline;
+}
+		.product-card .product-card__details .product-card__button:hover {
+			color: #f36a25;
+		}
+
+
+.product-card {
+	color: #222;
+}
+
+.product-card a h3 {
+  font-size: 1.266rem;
+  margin-bottom: 10px;
+}
+
+.product-card a p {
+  text-decoration: none;
+  margin-bottom: 5px !important;
+}
+
+.product-card__summary {
+  padding: 12px 15px 0;
+}
+
+.product-card__details {
+  padding: 0 15px 12px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+
+
+}
+
+
+@media only screen and (min-width: 1300px) {
+
+
+
+}
+
+@media only screen and (min-width: 1600px) {
+
+
+
+}
+
+/* Safari 10 fix - product container needs block level layout */
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.product-card__container {
+		display: block !important;
+	}
+}
