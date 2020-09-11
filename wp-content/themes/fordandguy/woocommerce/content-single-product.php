@@ -77,13 +77,13 @@ if ( post_password_required() ) {
 					<div class="acc-content">
 						<p>
 							<?php
-							global $wp_query;
-							$postid = $wp_query->post->ID;
-							echo get_post_meta($postid, 'custom_size_info', true);
-							wp_reset_query();
+								global $wp_query;
+								$postid = $wp_query->post->ID;
+								echo get_post_meta($postid, 'custom_size_info', true);
+								wp_reset_query();
 							?>
 						</p>
-						<?php //do_action( 'woocommerce_product_additional_information', $product ); ?>
+						<?php // do_action( 'woocommerce_product_additional_information', $product ); ?>
 						<!-- <a href="fordandguy/information/"><p>Read more</p></a> -->
 					</div>
 				</div>
@@ -92,9 +92,14 @@ if ( post_password_required() ) {
 				<a class="accordion"><h3>Delivery & returns</h3></a>
 				<div class="acc-panel">
 					<div class="acc-content">
-						<p>If you need to return an item, please contact me within 14 days of delivery and ship items back within 30 days of delivery.</p>
-						<p>Items are made to order so preparation times and shipping times will vary. We aim to dispatch orders within 5 days and send orders 1st class.</p>
-						<p>For more information about returns and delivery <a href="https://fordandguy.co.uk/information/">Click Here</a>.</p>
+						<p>
+						<?php
+							global $wp_query;
+							$postid = $wp_query->post->ID;
+							echo get_post_meta($postid, 'delivery_returns_info', true);
+							wp_reset_query();
+						?>
+						</p>
 					</div>
 				</div>
 				<hr>
