@@ -11,6 +11,13 @@ Template: storefront
    Formatting
    =============== */
 
+/* -- Site maxwidth -- */
+.col-full {
+  clear: both;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
 .site-main, .content-area {
   padding: 0 !important;
   margin: 0 !important;
@@ -119,10 +126,19 @@ img {
 }
 
 .woocommerce-products-header {
-  padding: 20px 20px 0;
+  padding: 20px;
   width: 100%;
   display: inline-block;
 }
+  .woocommerce-products-header h1,
+  .woocommerce-products-header h2,
+  .woocommerce-products-header p {
+    max-width: 800px;
+  }
+
+  .woocommerce-products-header p {
+    margin-bottom: 0;
+  }
 
 .storefront-sorting {
   font-size: 1em;
@@ -132,6 +148,7 @@ img {
   display: inline-block;
 }
   .woocommerce-ordering {
+    padding: 0;
     margin: 0;
     float: left;
   }
@@ -153,7 +170,7 @@ img {
 	width: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
-	margin: -20px 0 0;
+	margin: 0;
 	border: 1px solid #222;
 	box-shadow: none;
 	border-radius: 0;
@@ -230,12 +247,11 @@ hr {
   }
 
   .woocommerce-products-header {
-    width: 64.7%;
+    padding: 20px 20px 0;
   }
 
   .storefront-sorting {
-    padding: 20px;
-    width: 34.7%;
+    padding: 0 20px 20px;
     vertical-align: bottom;
   }
 
@@ -252,9 +268,14 @@ hr {
   margin: 0;
 }
 
+.storefront-primary-navigation {
+  /* display: flex; */
+}
+
 div.site-branding {
   width: auto;}
 img.custom-logo {
+  position: absolute !important;
   width: auto !important;
   height: 65px;
   padding: 20px 20px 18px;
@@ -685,6 +706,10 @@ ul.products::before {
   display: none;
 }
 
+ul.products::before, ul.products::after {
+    content: none;
+}
+
 ul.products li.product img,
 .wc-block-grid__product .wc-block-grid__product-image,
 .wc-block-grid__products .wc-block-grid__product img {
@@ -933,9 +958,17 @@ div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 20px;
+  padding: 20px 20px 0;
   margin: 0 auto;
   text-align: left;
+}
+
+@media only screen and (min-width: 1250px) {
+
+  .header {
+    padding: 20px 30px 10px;
+  }
+
 }
 
 /* ===============

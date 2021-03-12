@@ -1,5 +1,14 @@
 <?php
 
+// Disable REST API link tag (remove if anything breaks)
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+
+// Disable oEmbed Discovery Links (remove if anything breaks)
+remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+
+// Disable REST API link in HTTP headers (remove if anything breaks)
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+
 // ----- Footer logo -----
 add_theme_support( 'custom-logo', array(
 	'height'      => 100,
@@ -46,7 +55,10 @@ remove_action( 'storefront_loop_post', 'storefront_post_header', 10 );
 
 
 // Remove default product page tabs
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 )
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+// Remove prduct page tags
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 
 ?>

@@ -87,6 +87,66 @@ if ( woocommerce_product_loop() ) {
 	 */
 	do_action( 'woocommerce_no_products_found' );
 }
+?>
+
+<?php
+/**
+ * Hook: custom fields.
+ */
+	$term_id = get_queried_object()->term_id;
+	$post_id = 'product_cat_'.$term_id;
+	$custom_field = get_field('category_content_1', $post_id);
+	$custom_field_img = get_field('category_image_1', $post_id);
+	$custom_field_2 = get_field('category_content_2', $post_id);
+	$custom_field_img_2 = get_field('category_image_2', $post_id);
+?>
+
+<div class="wp-block-group">
+	<div class="wp-block-group__inner-container">
+
+<!-- Bespoke block 1 -->
+
+<?php if (!empty($custom_field)){  ?>
+
+	<div class="wp-block-cw-blocks-feature feature feature--alignleft undefined" style="background:#fff;color:#222">
+		<div class="feature__container">
+			<div class="feature__content">
+				<div class="feature__textbox">
+					<div><?php echo $custom_field; ?> </div> <?php // Get Advanced Custom Field Value ?>
+				</div>
+			</div>
+			<div class="feature__image">
+				<img src="<?php echo $custom_field_img; ?>" alt="close up of kimono on hanger">
+			</div>
+		</div>
+	</div>
+
+<?php } ?>
+
+
+<!-- Bespoke block 2 -->
+
+<?php if (!empty($custom_field_2)){  ?>
+
+		<div class="wp-block-cw-blocks-feature feature feature--alignleft undefined" style="background:#fff;color:#222">
+			<div class="feature__container">
+				<div class="feature__content">
+					<div class="feature__textbox">
+						<div><?php echo $custom_field_2; ?> </div> <?php // Get Advanced Custom Field Value ?>
+					</div>
+				</div>
+				<div class="feature__image">
+					<img src="<?php echo $custom_field_img_2; ?>" alt="close up of kimono on hanger">
+				</div>
+			</div>
+		</div>
+
+<?php } ?>
+
+
+	</div>
+</div>
+<?php
 
 /**
  * Hook: woocommerce_after_main_content.

@@ -173,7 +173,10 @@ input[type="reset"].alt:hover, input[type="submit"].alt:hover,
 /* Accordion */
 
 .accordion-cntr {
-  margin-bottom: 30px;
+  clear: both;
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto 30px;
 }
 
 a.accordion {
@@ -247,6 +250,69 @@ a.accordion {
 }
 
 
+/* ----- Upsells & related products ----- */
+
+section.up-sells,
+section.related {
+  clear: both;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section.up-sells > h2,
+section.related > h2 {
+  padding: 20px 30px 0 !important;
+  margin-bottom: 0 !important;
+}
+
+section.up-sells ul.products,
+section.related ul.products {
+  display: flex;
+  overflow-x: scroll;
+  padding: 20px 30px 30px;
+  margin-bottom: 0;
+}
+
+section.up-sells ul.products::after,
+section.related ul.products::after {
+  content: '';
+  padding-right: 10px;
+}
+
+section.up-sells ul.products li.product,
+section.related ul.products li.product {
+  min-width: 250px;
+  margin-right: 10px !important;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.12);
+}
+
+section.up-sells ul.products::after,
+section.related ul.products::after {
+  content: "";
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+
+  section.up-sells > ul.products,
+  section.related > ul.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  section.up-sells ul.products li.product,
+  section.related ul.products li.product {
+    min-width: 0;
+  }
+
+}
+
+
+/* ----- END Upsells & related products END ----- */
+
+
 @media only screen and (min-width: 768px) {
 
   .right-sidebar .content-area {
@@ -302,12 +368,17 @@ a.accordion {
    Reviews
    =============== */
 
+p.woocommerce-noreviews {
+  padding: 10px !important;
+  margin: 0 30px !important;
+}
+
  #reviews {
    clear: both;
  }
 
 #reviews .woocommerce-Reviews-title {
-  padding: 30px;
+  padding: 20px 30px 0;
 }
 
 #reviews #comments {

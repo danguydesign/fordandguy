@@ -10,6 +10,10 @@ html {
   text-align: left;
 }
 
+.visually-hidden {
+  display: none;
+}
+
 .dm-sans {font-family: 'DM Sans', sans-serif;}
 .pt-serif {font-family: 'PT Serif', serif !important;}
 
@@ -86,7 +90,7 @@ p:last-child,
 h2:last-child,
 h3:last-child {
   padding: 0;
-  margin: 0;
+  /* margin: 0; */
 }
 
 .price {
