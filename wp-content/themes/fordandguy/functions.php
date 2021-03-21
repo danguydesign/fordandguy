@@ -1,14 +1,5 @@
 <?php
 
-// Disable REST API link tag (remove if anything breaks)
-remove_action('wp_head', 'rest_output_link_wp_head', 10);
-
-// Disable oEmbed Discovery Links (remove if anything breaks)
-remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
-
-// Disable REST API link in HTTP headers (remove if anything breaks)
-remove_action('template_redirect', 'rest_output_link_header', 11, 0);
-
 // ----- Footer logo -----
 add_theme_support( 'custom-logo', array(
 	'height'      => 100,
@@ -20,6 +11,23 @@ add_theme_support( 'custom-logo', array(
 
 function removestuff() {
   remove_action('storefront_page', 'storefront_page_header', 10);
+	remove_action( 'woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+	remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
+	remove_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20 );
+	// Remove default product page tabs
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+	// Remove prduct page tags
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	remove_action( 'storefront_loop_post', 'storefront_post_header', 10 );
+
+	// Disable REST API link tag (remove if anything breaks)
+	remove_action('wp_head', 'rest_output_link_wp_head', 10);
+	// Disable oEmbed Discovery Links (remove if anything breaks)
+	remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+	// Disable REST API link in HTTP headers (remove if anything breaks)
+	remove_action('template_redirect', 'rest_output_link_header', 11, 0);
 }
 
 add_action( 'init', 'removestuff', 1);
@@ -47,18 +55,16 @@ function my_theme_name_scripts() {
   //wp_enqueue_style( 'fordandguy', get_stylesheet_directory_uri() . '/css/fordandguy.css' );
   // wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/swiper.js', array(), '1.0.0', true );
   wp_enqueue_script( 'my-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true );
+
+	// Swap navigation sqript
+	wp_dequeue_script( 'storefront-navigation'  );
+	wp_enqueue_script( 'fordandguy-navigation', get_stylesheet_directory_uri() . '/js/navigation.js', array(), null, true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'my_theme_name_scripts', 99 );
 
-remove_action( 'storefront_loop_post', 'storefront_post_header', 10 );
 
-
-// Remove default product page tabs
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
-
-// Remove prduct page tags
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 
 ?>

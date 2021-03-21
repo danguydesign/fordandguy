@@ -31,7 +31,7 @@ do_action( 'woocommerce_before_main_content' );
 ?>
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?><?php woocommerce_result_count(); ?></h1>
 	<?php endif; ?>
 
 	<?php
@@ -78,7 +78,7 @@ if ( woocommerce_product_loop() ) {
 	 *
 	 * @hooked woocommerce_pagination - 10
 	 */
-//	do_action( 'woocommerce_after_shop_loop' );
+	do_action( 'woocommerce_after_shop_loop' );
 } else {
 	/**
 	 * Hook: woocommerce_no_products_found.
@@ -101,12 +101,13 @@ if ( woocommerce_product_loop() ) {
 	$custom_field_img_2 = get_field('category_image_2', $post_id);
 ?>
 
+
+<?php if (!empty($custom_field)){  ?>
+
 <div class="wp-block-group">
 	<div class="wp-block-group__inner-container">
 
 <!-- Bespoke block 1 -->
-
-<?php if (!empty($custom_field)){  ?>
 
 	<div class="wp-block-cw-blocks-feature feature feature--alignleft undefined" style="background:#fff;color:#222">
 		<div class="feature__container">
@@ -120,9 +121,6 @@ if ( woocommerce_product_loop() ) {
 			</div>
 		</div>
 	</div>
-
-<?php } ?>
-
 
 <!-- Bespoke block 2 -->
 
@@ -141,7 +139,9 @@ if ( woocommerce_product_loop() ) {
 			</div>
 		</div>
 
-<?php } ?>
+<?php }
+
+} ?>
 
 
 	</div>

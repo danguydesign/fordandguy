@@ -10,12 +10,42 @@
 
 	// Wait for DOM to be ready.
 	document.addEventListener( 'DOMContentLoaded', function() {
+    var pageBody = document.querySelector( 'body' );
 		var container = document.getElementById( 'site-navigation' );
+    var overlayDiv = document.createElement("div");
+    var button = container.querySelector( 'button' );
+
+    // Functions
+    function openClose() {
+      container.classList.toggle( 'toggled' );
+      var expanded = container.classList.contains( 'toggled' ) ? 'true' : 'false';
+      button.setAttribute( 'aria-expanded', expanded );
+      menu.setAttribute( 'aria-expanded', expanded );
+      preventScroll();
+    }
+
+    function preventScroll() {
+      pageBody.classList.toggle('fixed') ;
+    }
+
+    // Added by Me
+    overlayDiv.className = "overlay";
+    container.appendChild(overlayDiv);
+    overlayDiv.addEventListener('click', event => {
+      openClose();
+    });
+
+    window.onresize = function(event) {
+     if (window.innerWidth > 768) {
+        if ( container.classList.contains('toggled') ) {
+          openClose();
+        }
+     }
+    };
+
 		if ( ! container ) {
 			return;
 		}
-
-		var button = container.querySelector( 'button' );
 
 		if ( ! button ) {
 			return;
@@ -34,10 +64,7 @@
 		menu.classList.add( 'nav-menu' );
 
 		button.addEventListener( 'click', function() {
-			container.classList.toggle( 'toggled' );
-			var expanded = container.classList.contains( 'toggled' ) ? 'true' : 'false';
-			button.setAttribute( 'aria-expanded', expanded );
-			menu.setAttribute( 'aria-expanded', expanded );
+      openClose();
 		} );
 
 		// Add dropdown toggle that displays child menu items.
@@ -53,7 +80,7 @@
 
 				var btnSpan = document.createElement( 'span' );
 				btnSpan.classList.add( 'screen-reader-text' );
-				btnSpan.appendChild( document.createTextNode( storefrontScreenReaderText.expand ) );
+				// btnSpan.appendChild( document.createTextNode( storefrontScreenReaderText.expand ) );
 
 				btn.appendChild( btnSpan );
 
@@ -78,7 +105,7 @@
 					var expanded = btn.classList.contains( 'toggled-on' );
 
 					btn.setAttribute( 'aria-expanded', expanded );
-					btnSpan.appendChild( document.createTextNode( expanded ? storefrontScreenReaderText.collapse : storefrontScreenReaderText.expand ) );
+					// btnSpan.appendChild( document.createTextNode( expanded ? storefrontScreenReaderText.collapse : storefrontScreenReaderText.expand ) );
 					btn.nextElementSibling.classList.toggle( 'toggled-on' );
 				} );
 			} );
