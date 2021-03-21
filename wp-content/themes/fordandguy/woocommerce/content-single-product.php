@@ -60,6 +60,8 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
+	</div>
+
 
 		<div class="col-full">
 
@@ -107,7 +109,6 @@ if ( post_password_required() ) {
 
 		</div>
 
-	</div>
 
 
 	<!-- Reviews -->

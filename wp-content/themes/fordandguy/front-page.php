@@ -16,7 +16,6 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<section>
 				<?php
 				if ( have_posts() ) :
 
@@ -24,9 +23,6 @@ get_header(); ?>
 
 				endif;
 				?>
-			</section>
-
-			<section>
 
 				<?php
 
@@ -55,9 +51,6 @@ get_header(); ?>
 				// wp_reset_postdata();
 
 				?>
-
-
-			</section>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

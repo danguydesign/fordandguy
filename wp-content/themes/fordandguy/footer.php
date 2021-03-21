@@ -47,18 +47,21 @@
 					<strong>social</strong>
 					<div class="footer-social">
 						<a href="https://www.instagram.com/fordandguy/" class="footer-icon" target="_blank">
+							<p class="visually-hidden">Instagram</p>
 							<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 		  					<path d="M6.89 2.234h10.22c2.578 0 4.668 2.1 4.668 4.692v10.148c0 2.592-2.09 4.692-4.667 4.692H6.889c-2.577 0-4.667-2.1-4.667-4.692V6.926c0-2.592 2.09-4.692 4.667-4.692zM0 17.074C0 20.9 3.085 24 6.89 24h10.22c3.806 0 6.89-3.1 6.89-6.926V6.926C24 3.1 20.915 0 17.11 0H6.89C3.083 0 0 3.1 0 6.926v10.148zm18.35-4.978c0-3.508-2.83-6.351-6.318-6.351-3.49 0-6.318 2.843-6.318 6.35 0 3.508 2.829 6.352 6.318 6.352 3.489 0 6.317-2.844 6.317-6.351zm-10.413 0c0-2.274 1.833-4.117 4.095-4.117 2.261 0 4.095 1.843 4.095 4.117s-1.834 4.117-4.095 4.117c-2.262 0-4.095-1.843-4.095-4.117zm10.476-4.979c.841 0 1.524-.686 1.524-1.532s-.683-1.532-1.524-1.532c-.842 0-1.524.686-1.524 1.532s.682 1.532 1.524 1.532z"></path>
 							</svg>
 						</a>
 
 						<a href="https://www.facebook.com/FordandGuy/" class="footer-icon" target="_blank">
+							<p class="visually-hidden">Facebook</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-							  <path <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+							  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
 							</svg>
 						</a>
 
 						<a href="https://www.etsy.com/shop/fordandguy" class="footer-icon" target="_blank">
+							<p class="visually-hidden">Etsy</p>
 							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 								 width="24" height="24" viewBox="0 0 94 94" xml:space="preserve">
 								<path d="M89,0H5C2.239,0,0,2.238,0,5v84c0,2.762,2.239,5,5,5h84c2.762,0,5-2.238,5-5V5C94,2.238,91.762,0,89,0z M80.561,68.665
