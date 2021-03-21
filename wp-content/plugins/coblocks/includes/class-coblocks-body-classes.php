@@ -44,6 +44,7 @@ class CoBlocks_Body_Classes {
 	 */
 	public function themes() {
 		$themes = array(
+			'twentytwentyone',
 			'twentytwenty',
 			'twentynineteen',
 			'twentyseventeen',
@@ -65,7 +66,7 @@ class CoBlocks_Body_Classes {
 	 * @return string
 	 */
 	public function theme_slug() {
-		return esc_attr( wp_get_theme( get_template() )->get( 'TextDomain' ) );
+		return esc_attr( wp_get_theme( get_template() )->get_template() );
 	}
 
 	/**
@@ -80,6 +81,10 @@ class CoBlocks_Body_Classes {
 
 		if ( $this->is_active_theme( $this->themes() ) ) {
 			$classes[] = 'is-' . $this->theme_slug();
+		}
+
+		if ( apply_filters( 'coblocks_is_amp', ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() && ! in_array( 'amp', $classes, true ) ) ) ) {
+			$classes[] = 'amp';
 		}
 
 		return $classes;
