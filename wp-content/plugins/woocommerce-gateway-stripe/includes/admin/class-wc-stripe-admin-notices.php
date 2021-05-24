@@ -11,9 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_Stripe_Admin_Notices {
 	/**
 	 * Notices (array)
+	 *
 	 * @var array
 	 */
-	public $notices = array();
+	public $notices = [];
 
 	/**
 	 * Constructor
@@ -21,9 +22,9 @@ class WC_Stripe_Admin_Notices {
 	 * @since 4.1.0
 	 */
 	public function __construct() {
-		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
-		add_action( 'woocommerce_stripe_updated', array( $this, 'stripe_updated' ) );
+		add_action( 'admin_notices', [ $this, 'admin_notices' ] );
+		add_action( 'wp_loaded', [ $this, 'hide_notices' ] );
+		add_action( 'woocommerce_stripe_updated', [ $this, 'stripe_updated' ] );
 	}
 
 	/**
@@ -33,11 +34,11 @@ class WC_Stripe_Admin_Notices {
 	 * @version 4.0.0
 	 */
 	public function add_admin_notice( $slug, $class, $message, $dismissible = false ) {
-		$this->notices[ $slug ] = array(
+		$this->notices[ $slug ] = [
 			'class'       => $class,
 			'message'     => $message,
 			'dismissible' => $dismissible,
-		);
+		];
 	}
 
 	/**
@@ -67,7 +68,15 @@ class WC_Stripe_Admin_Notices {
 			}
 
 			echo '<p>';
-			echo wp_kses( $notice['message'], array( 'a' => array( 'href' => array(), 'target' => array() ) ) );
+			echo wp_kses(
+				$notice['message'],
+				[
+					'a' => [
+						'href'   => [],
+						'target' => [],
+					],
+				]
+			);
 			echo '</p></div>';
 		}
 	}
@@ -79,7 +88,7 @@ class WC_Stripe_Admin_Notices {
 	 * @return array
 	 */
 	public function get_payment_methods() {
-		return array(
+		return [
 			'Alipay'     => 'WC_Gateway_Stripe_Alipay',
 			'Bancontact' => 'WC_Gateway_Stripe_Bancontact',
 			'EPS'        => 'WC_Gateway_Stripe_EPS',
@@ -89,7 +98,7 @@ class WC_Stripe_Admin_Notices {
 			'P24'        => 'WC_Gateway_Stripe_p24',
 			'SEPA'       => 'WC_Gateway_Stripe_Sepa',
 			'SOFORT'     => 'WC_Gateway_Stripe_Sofort',
-		);
+		];
 	}
 
 	/**
@@ -148,14 +157,7 @@ class WC_Stripe_Admin_Notices {
 			}
 
 			if ( empty( $show_wcver_notice ) ) {
-				if ( WC_Stripe_Helper::is_wc_lt( WC_STRIPE_MIN_WC_VER ) ) {
-					/* translators: 1) int version 2) int version */
-					$message = __( 'WooCommerce Stripe - The minimum WooCommerce version required for this plugin is %1$s. You are running %2$s.', 'woocommerce-gateway-stripe' );
-
-					$this->add_admin_notice( 'wcver', 'notice notice-warning', sprintf( $message, WC_STRIPE_MIN_WC_VER, WC_VERSION ), true );
-
-					return;
-				} elseif ( WC_Stripe_Helper::is_wc_lt( WC_STRIPE_FUTURE_MIN_WC_VER ) ) {
+				if ( WC_Stripe_Helper::is_wc_lt( WC_STRIPE_FUTURE_MIN_WC_VER ) ) {
 					/* translators: 1) int version 2) int version */
 					$message = __( 'WooCommerce Stripe - This is the last version of the plugin compatible with WooCommerce %1$s. All furture versions of the plugin will require WooCommerce %2$s or greater.', 'woocommerce-gateway-stripe' );
 					$this->add_admin_notice( 'wcver', 'notice notice-warning', sprintf( $message, WC_VERSION, WC_STRIPE_FUTURE_MIN_WC_VER ), true );
@@ -181,8 +183,7 @@ class WC_Stripe_Admin_Notices {
 				if ( $testmode ) {
 					if (
 						! empty( $test_pub_key ) && ! preg_match( '/^pk_test_/', $test_pub_key )
-						|| ( ! empty( $test_secret_key ) && ! preg_match( '/^sk_test_/', $test_secret_key )
-						&& ! empty( $test_secret_key ) && ! preg_match( '/^rk_test_/', $test_secret_key ) ) ) {
+						|| ! empty( $test_secret_key ) && ! preg_match( '/^[rs]k_test_/', $test_secret_key ) ) {
 						$setting_link = $this->get_setting_link();
 						/* translators: 1) link */
 						$this->add_admin_notice( 'keys', 'notice notice-error', sprintf( __( 'Stripe is in test mode however your test keys may not be valid. Test keys start with pk_test and sk_test or rk_test. Please go to your settings and, <a href="%s">set your Stripe account keys</a>.', 'woocommerce-gateway-stripe' ), $setting_link ), true );
@@ -190,11 +191,10 @@ class WC_Stripe_Admin_Notices {
 				} else {
 					if (
 						! empty( $live_pub_key ) && ! preg_match( '/^pk_live_/', $live_pub_key )
-						|| ( ! empty( $live_secret_key ) && ! preg_match( '/^sk_live_/', $live_secret_key )
-						&& ! empty( $live_secret_key ) && ! preg_match( '/^rk_live_/', $live_secret_key ) ) ) {
+						|| ! empty( $live_secret_key ) && ! preg_match( '/^[rs]k_live_/', $live_secret_key ) ) {
 						$setting_link = $this->get_setting_link();
 						/* translators: 1) link */
-						$this->add_admin_notice( 'keys', 'notice notice-error', sprintf( __( 'Stripe is in live mode however your test keys may not be valid. Live keys start with pk_live and sk_live or rk_live. Please go to your settings and, <a href="%s">set your Stripe account keys</a>.', 'woocommerce-gateway-stripe' ), $setting_link ), true );
+						$this->add_admin_notice( 'keys', 'notice notice-error', sprintf( __( 'Stripe is in live mode however your live keys may not be valid. Live keys start with pk_live and sk_live or rk_live. Please go to your settings and, <a href="%s">set your Stripe account keys</a>.', 'woocommerce-gateway-stripe' ), $setting_link ), true );
 					}
 				}
 			}
@@ -208,6 +208,7 @@ class WC_Stripe_Admin_Notices {
 			}
 
 			if ( empty( $show_sca_notice ) ) {
+				/* translators: %1 is the URL for the link */
 				$this->add_admin_notice( 'sca', 'notice notice-success', sprintf( __( 'Stripe is now ready for Strong Customer Authentication (SCA) and 3D Secure 2! <a href="%1$s" target="_blank">Read about SCA</a>', 'woocommerce-gateway-stripe' ), 'https://woocommerce.com/posts/introducing-strong-customer-authentication-sca/' ), true );
 			}
 
@@ -249,7 +250,7 @@ class WC_Stripe_Admin_Notices {
 	 */
 	public function hide_notices() {
 		if ( isset( $_GET['wc-stripe-hide-notice'] ) && isset( $_GET['_wc_stripe_notice_nonce'] ) ) {
-			if ( ! wp_verify_nonce( $_GET['_wc_stripe_notice_nonce'], 'wc_stripe_hide_notices_nonce' ) ) {
+			if ( ! wp_verify_nonce( wc_clean( wp_unslash( $_GET['_wc_stripe_notice_nonce'] ) ), 'wc_stripe_hide_notices_nonce' ) ) {
 				wp_die( __( 'Action failed. Please refresh the page and retry.', 'woocommerce-gateway-stripe' ) );
 			}
 
@@ -257,7 +258,7 @@ class WC_Stripe_Admin_Notices {
 				wp_die( __( 'Cheatin&#8217; huh?', 'woocommerce-gateway-stripe' ) );
 			}
 
-			$notice = wc_clean( $_GET['wc-stripe-hide-notice'] );
+			$notice = wc_clean( wp_unslash( $_GET['wc-stripe-hide-notice'] ) );
 
 			switch ( $notice ) {
 				case 'style':
@@ -325,11 +326,7 @@ class WC_Stripe_Admin_Notices {
 	 * @return string Setting link
 	 */
 	public function get_setting_link() {
-		$use_id_as_section = function_exists( 'WC' ) ? version_compare( WC()->version, '2.6', '>=' ) : false;
-
-		$section_slug = $use_id_as_section ? 'stripe' : strtolower( 'WC_Gateway_Stripe' );
-
-		return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $section_slug );
+		return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=stripe' );
 	}
 
 	/**

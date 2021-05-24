@@ -87,9 +87,9 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		$this->id             = 'stripe';
 		$this->method_title   = __( 'Stripe', 'woocommerce-gateway-stripe' );
 		/* translators: 1) link to Stripe register page 2) link to Stripe api keys page */
-		$this->method_description = sprintf( __( 'Stripe works by adding payment fields on the checkout and then sending the details to Stripe for verification. <a href="%1$s" target="_blank">Sign up</a> for a Stripe account, and <a href="%2$s" target="_blank">get your Stripe account keys</a>.', 'woocommerce-gateway-stripe' ), 'https://dashboard.stripe.com/register', 'https://dashboard.stripe.com/account/apikeys' );
+		$this->method_description = __( 'Stripe works by adding payment fields on the checkout and then sending the details to Stripe for verification.', 'woocommerce-gateway-stripe' );
 		$this->has_fields         = true;
-		$this->supports           = array(
+		$this->supports           = [
 			'products',
 			'refunds',
 			'tokenization',
@@ -105,7 +105,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			'subscription_payment_method_change_admin',
 			'multiple_subscriptions',
 			'pre-orders',
-		);
+		];
 
 		// Load the form fields.
 		$this->init_form_fields();
@@ -129,37 +129,27 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		WC_Stripe_API::set_secret_key( $this->secret_key );
 
 		// Hooks.
-		add_action( 'wp_enqueue_scripts', array( $this, 'payment_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		add_action( 'woocommerce_admin_order_totals_after_total', array( $this, 'display_order_fee' ) );
-		add_action( 'woocommerce_admin_order_totals_after_total', array( $this, 'display_order_payout' ), 20 );
-		add_action( 'woocommerce_customer_save_address', array( $this, 'show_update_card_notice' ), 10, 2 );
-		add_filter( 'woocommerce_available_payment_gateways', array( $this, 'prepare_order_pay_page' ) );
-		add_action( 'woocommerce_account_view-order_endpoint', array( $this, 'check_intent_status_on_order_page' ), 1 );
-		add_filter( 'woocommerce_payment_successful_result', array( $this, 'modify_successful_payment_result' ), 99999, 2 );
-		add_action( 'set_logged_in_cookie', array( $this, 'set_cookie_on_current_request' ) );
-		add_filter( 'woocommerce_get_checkout_payment_url', array( $this, 'get_checkout_payment_url' ), 10, 2 );
+		add_action( 'wp_enqueue_scripts', [ $this, 'payment_scripts' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
+		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, [ $this, 'process_admin_options' ] );
+		add_action( 'woocommerce_admin_order_totals_after_total', [ $this, 'display_order_fee' ] );
+		add_action( 'woocommerce_admin_order_totals_after_total', [ $this, 'display_order_payout' ], 20 );
+		add_action( 'woocommerce_customer_save_address', [ $this, 'show_update_card_notice' ], 10, 2 );
+		add_filter( 'woocommerce_available_payment_gateways', [ $this, 'prepare_order_pay_page' ] );
+		add_action( 'woocommerce_account_view-order_endpoint', [ $this, 'check_intent_status_on_order_page' ], 1 );
+		add_filter( 'woocommerce_payment_successful_result', [ $this, 'modify_successful_payment_result' ], 99999, 2 );
+		add_action( 'set_logged_in_cookie', [ $this, 'set_cookie_on_current_request' ] );
+		add_filter( 'woocommerce_get_checkout_payment_url', [ $this, 'get_checkout_payment_url' ], 10, 2 );
+		add_filter( 'woocommerce_settings_api_sanitized_fields_' . $this->id, [ $this, 'settings_api_sanitized_fields' ] );
+
+		// Note: display error is in the parent class.
+		add_action( 'admin_notices', [ $this, 'display_errors' ], 9999 );
 
 		if ( WC_Stripe_Helper::is_pre_orders_exists() ) {
 			$this->pre_orders = new WC_Stripe_Pre_Orders_Compat();
 
-			add_action( 'wc_pre_orders_process_pre_order_completion_payment_' . $this->id, array( $this->pre_orders, 'process_pre_order_release_payment' ) );
+			add_action( 'wc_pre_orders_process_pre_order_completion_payment_' . $this->id, [ $this->pre_orders, 'process_pre_order_release_payment' ] );
 		}
-	}
-
-	/**
-	 * Checks if keys are set.
-	 *
-	 * @since 4.0.6
-	 * @return bool
-	 */
-	public function are_keys_set() {
-		if ( empty( $this->secret_key ) || empty( $this->publishable_key ) ) {
-			return false;
-		}
-
-		return true;
 	}
 
 	/**
@@ -195,22 +185,17 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 	 * Get_icon function.
 	 *
 	 * @since 1.0.0
-	 * @version 4.0.0
+	 * @version 4.9.0
 	 * @return string
 	 */
 	public function get_icon() {
-		$icons = $this->payment_icons();
+		$icons                 = $this->payment_icons();
+		$supported_card_brands = WC_Stripe_Helper::get_supported_card_brands();
 
 		$icons_str = '';
 
-		$icons_str .= isset( $icons['visa'] ) ? $icons['visa'] : '';
-		$icons_str .= isset( $icons['amex'] ) ? $icons['amex'] : '';
-		$icons_str .= isset( $icons['mastercard'] ) ? $icons['mastercard'] : '';
-
-		if ( 'USD' === get_woocommerce_currency() ) {
-			$icons_str .= isset( $icons['discover'] ) ? $icons['discover'] : '';
-			$icons_str .= isset( $icons['jcb'] ) ? $icons['jcb'] : '';
-			$icons_str .= isset( $icons['diners'] ) ? $icons['diners'] : '';
+		foreach ( $supported_card_brands as $brand ) {
+			$icons_str .= isset( $icons[ $brand ] ) ? $icons[ $brand ] : '';
 		}
 
 		return apply_filters( 'woocommerce_gateway_icon', $icons_str, $this->id );
@@ -220,13 +205,14 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 	 * Initialise Gateway Settings Form Fields
 	 */
 	public function init_form_fields() {
-		$this->form_fields = require( dirname( __FILE__ ) . '/admin/stripe-settings.php' );
+		$this->form_fields = require dirname( __FILE__ ) . '/admin/stripe-settings.php';
 	}
 
 	/**
 	 * Payment form on checkout page
 	 */
 	public function payment_fields() {
+		global $wp;
 		$user                 = wp_get_current_user();
 		$display_tokenization = $this->supports( 'tokenization' ) && is_checkout() && $this->saved_cards;
 		$total                = WC()->cart->total;
@@ -238,9 +224,9 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 
 		// If paying from order, we need to get total from order not cart.
 		if ( isset( $_GET['pay_for_order'] ) && ! empty( $_GET['key'] ) ) { // wpcs: csrf ok.
-			$order      = wc_get_order( wc_get_order_id_by_order_key( wc_clean( $_GET['key'] ) ) ); // wpcs: csrf ok, sanitization ok.
+			$order      = wc_get_order( wc_clean( $wp->query_vars['order-pay'] ) ); // wpcs: csrf ok, sanitization ok.
 			$total      = $order->get_total();
-			$user_email = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_email : $order->get_billing_email();
+			$user_email = $order->get_billing_email();
 		} else {
 			if ( $user->ID ) {
 				$user_email = get_user_meta( $user->ID, 'billing_email', true );
@@ -249,8 +235,8 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		}
 
 		if ( is_add_payment_method_page() ) {
-			$firstname       = $user->user_firstname;
-			$lastname        = $user->user_lastname;
+			$firstname = $user->user_firstname;
+			$lastname  = $user->user_lastname;
 		}
 
 		ob_start();
@@ -360,7 +346,18 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'woocommerce_stripe_admin', plugins_url( 'assets/js/stripe-admin' . $suffix . '.js', WC_STRIPE_MAIN_FILE ), array(), WC_STRIPE_VERSION, true );
+		wp_register_script( 'woocommerce_stripe_admin', plugins_url( 'assets/js/stripe-admin' . $suffix . '.js', WC_STRIPE_MAIN_FILE ), [], WC_STRIPE_VERSION, true );
+
+		$params = [
+			'time'             => time(),
+			'i18n_out_of_sync' => wp_kses(
+				__( '<strong>Warning:</strong> your site\'s time does not match the time on your browser and may be incorrect. Some payment methods depend on webhook verification and verifying webhooks with a signing secret depends on your site\'s time being correct, so please check your site\'s time before setting a webhook secret. You may need to contact your site\'s hosting provider to correct the site\'s time.', 'woocommerce-gateway-stripe' ),
+				[ 'strong' => [] ]
+			),
+		];
+		wp_localize_script( 'woocommerce_stripe_admin', 'wc_stripe_settings_params', $params );
+
+		wp_enqueue_script( 'woocommerce_stripe_admin' );
 	}
 
 	/**
@@ -372,6 +369,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 	 * @version 4.0.0
 	 */
 	public function payment_scripts() {
+		global $wp;
 		if (
 			! is_product()
 			&& ! is_cart()
@@ -406,42 +404,42 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_register_style( 'stripe_styles', plugins_url( 'assets/css/stripe-styles.css', WC_STRIPE_MAIN_FILE ), array(), WC_STRIPE_VERSION );
+		wp_register_style( 'stripe_styles', plugins_url( 'assets/css/stripe-styles.css', WC_STRIPE_MAIN_FILE ), [], WC_STRIPE_VERSION );
 		wp_enqueue_style( 'stripe_styles' );
 
 		wp_register_script( 'stripe', 'https://js.stripe.com/v3/', '', '3.0', true );
-		wp_register_script( 'woocommerce_stripe', plugins_url( 'assets/js/stripe' . $suffix . '.js', WC_STRIPE_MAIN_FILE ), array( 'jquery-payment', 'stripe' ), WC_STRIPE_VERSION, true );
+		wp_register_script( 'woocommerce_stripe', plugins_url( 'assets/js/stripe' . $suffix . '.js', WC_STRIPE_MAIN_FILE ), [ 'jquery-payment', 'stripe' ], WC_STRIPE_VERSION, true );
 
-		$stripe_params = array(
+		$stripe_params = [
 			'key'                  => $this->publishable_key,
 			'i18n_terms'           => __( 'Please accept the terms and conditions first', 'woocommerce-gateway-stripe' ),
 			'i18n_required_fields' => __( 'Please fill in required checkout fields first', 'woocommerce-gateway-stripe' ),
-		);
+		];
 
 		// If we're on the pay page we need to pass stripe.js the address of the order.
 		if ( isset( $_GET['pay_for_order'] ) && 'true' === $_GET['pay_for_order'] ) { // wpcs: csrf ok.
-			$order_id = wc_get_order_id_by_order_key( urldecode( $_GET['key'] ) ); // wpcs: csrf ok, sanitization ok, xss ok.
+			$order_id = wc_clean( $wp->query_vars['order-pay'] ); // wpcs: csrf ok, sanitization ok, xss ok.
 			$order    = wc_get_order( $order_id );
 
 			if ( is_a( $order, 'WC_Order' ) ) {
-				$stripe_params['billing_first_name'] = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_first_name : $order->get_billing_first_name();
-				$stripe_params['billing_last_name']  = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_last_name : $order->get_billing_last_name();
-				$stripe_params['billing_address_1']  = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_address_1 : $order->get_billing_address_1();
-				$stripe_params['billing_address_2']  = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_address_2 : $order->get_billing_address_2();
-				$stripe_params['billing_state']      = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_state : $order->get_billing_state();
-				$stripe_params['billing_city']       = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_city : $order->get_billing_city();
-				$stripe_params['billing_postcode']   = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_postcode : $order->get_billing_postcode();
-				$stripe_params['billing_country']    = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->billing_country : $order->get_billing_country();
+				$stripe_params['billing_first_name'] = $order->get_billing_first_name();
+				$stripe_params['billing_last_name']  = $order->get_billing_last_name();
+				$stripe_params['billing_address_1']  = $order->get_billing_address_1();
+				$stripe_params['billing_address_2']  = $order->get_billing_address_2();
+				$stripe_params['billing_state']      = $order->get_billing_state();
+				$stripe_params['billing_city']       = $order->get_billing_city();
+				$stripe_params['billing_postcode']   = $order->get_billing_postcode();
+				$stripe_params['billing_country']    = $order->get_billing_country();
 			}
 		}
 
 		$sepa_elements_options = apply_filters(
 			'wc_stripe_sepa_elements_options',
-			array(
-				'supportedCountries' => array( 'SEPA' ),
+			[
+				'supportedCountries' => [ 'SEPA' ],
 				'placeholderCountry' => WC()->countries->get_base_country(),
-				'style'              => array( 'base' => array( 'fontSize' => '15px' ) ),
-			)
+				'style'              => [ 'base' => [ 'fontSize' => '15px' ] ],
+			]
 		);
 
 		$stripe_params['no_prepaid_card_msg']       = __( 'Sorry, we\'re not accepting prepaid cards at this time. Your credit card has not been charged. Please try with alternative payment method.', 'woocommerce-gateway-stripe' );
@@ -456,7 +454,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		$stripe_params['ajaxurl']                   = WC_AJAX::get_endpoint( '%%endpoint%%' );
 		$stripe_params['stripe_nonce']              = wp_create_nonce( '_wc_stripe_nonce' );
 		$stripe_params['statement_descriptor']      = $this->statement_descriptor;
-		$stripe_params['elements_options']          = apply_filters( 'wc_stripe_elements_options', array() );
+		$stripe_params['elements_options']          = apply_filters( 'wc_stripe_elements_options', [] );
 		$stripe_params['sepa_elements_options']     = $sepa_elements_options;
 		$stripe_params['invalid_owner_name']        = __( 'Billing First Name and Last Name are required.', 'woocommerce-gateway-stripe' );
 		$stripe_params['is_change_payment_page']    = isset( $_GET['change_payment_method'] ) ? 'yes' : 'no'; // wpcs: csrf ok.
@@ -464,6 +462,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		$stripe_params['is_pay_for_order_page']     = is_wc_endpoint_url( 'order-pay' ) ? 'yes' : 'no';
 		$stripe_params['elements_styling']          = apply_filters( 'wc_stripe_elements_styling', false );
 		$stripe_params['elements_classes']          = apply_filters( 'wc_stripe_elements_classes', false );
+		$stripe_params['add_card_nonce']            = wp_create_nonce( 'wc_stripe_create_si' );
 
 		// Merge localized messages to be use in JS.
 		$stripe_params = array_merge( $stripe_params, WC_Stripe_Helper::get_localized_messages() );
@@ -519,14 +518,9 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			return false;
 		}
 
-		if ( WC_Stripe_Helper::is_wc_lt( '3.0' ) ) {
-			delete_user_option( $order->customer_user, '_stripe_customer_id' );
-			delete_post_meta( $order->get_id(), '_stripe_customer_id' );
-		} else {
-			delete_user_option( $order->get_customer_id(), '_stripe_customer_id' );
-			$order->delete_meta_data( '_stripe_customer_id' );
-			$order->save();
-		}
+		delete_user_option( $order->get_customer_id(), '_stripe_customer_id' );
+		$order->delete_meta_data( '_stripe_customer_id' );
+		$order->save();
 
 		return true;
 	}
@@ -546,11 +540,11 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 
 			if ( ! empty( $intent_secret ) ) {
 				// `get_return_url()` must be called immediately before returning a value.
-				return array(
+				return [
 					'result'              => 'success',
 					'redirect'            => $this->get_return_url( $order ),
 					'setup_intent_secret' => $intent_secret,
-				);
+				];
 			}
 		}
 
@@ -560,10 +554,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		$order->payment_complete();
 
 		// Return thank you page redirect.
-		return array(
+		return [
 			'result'   => 'success',
 			'redirect' => $this->get_return_url( $order ),
-		);
+		];
 	}
 
 	/**
@@ -656,10 +650,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 					if ( is_wc_endpoint_url( 'order-pay' ) ) {
 						$redirect_url = add_query_arg( 'wc-stripe-confirmation', 1, $order->get_checkout_payment_url( false ) );
 
-						return array(
+						return [
 							'result'   => 'success',
 							'redirect' => $redirect_url,
-						);
+						];
 					} else {
 						/**
 						 * This URL contains only a hash, which will be sent to `checkout.js` where it will be set like this:
@@ -667,11 +661,11 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 						 * Once this redirect is sent to JS, the `onHashChange` function will execute `handleCardPayment`.
 						 */
 
-						return array(
+						return [
 							'result'                => 'success',
 							'redirect'              => $this->get_return_url( $order ),
 							'payment_intent_secret' => $intent->client_secret,
-						);
+						];
 					}
 				}
 			}
@@ -688,10 +682,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			$this->unlock_order_payment( $order );
 
 			// Return thank you page redirect.
-			return array(
+			return [
 				'result'   => 'success',
 				'redirect' => $this->get_return_url( $order ),
-			);
+			];
 
 		} catch ( WC_Stripe_Exception $e ) {
 			wc_add_notice( $e->getLocalizedMessage(), 'error' );
@@ -702,10 +696,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			/* translators: error message */
 			$order->update_status( 'failed' );
 
-			return array(
+			return [
 				'result'   => 'fail',
 				'redirect' => '',
-			);
+			];
 		}
 	}
 
@@ -739,7 +733,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			</td>
 			<td width="1%"></td>
 			<td class="total">
-				-&nbsp;<?php echo wc_price( $fee, array( 'currency' => $currency ) ); // wpcs: xss ok. ?>
+				-<?php echo wc_price( $fee, [ 'currency' => $currency ] ); // wpcs: xss ok. ?>
 			</td>
 		</tr>
 
@@ -776,7 +770,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			</td>
 			<td width="1%"></td>
 			<td class="total">
-				<?php echo wc_price( $net, array( 'currency' => $currency ) ); // wpcs: xss ok. ?>
+				<?php echo wc_price( $net, [ 'currency' => $currency ] ); // wpcs: xss ok. ?>
 			</td>
 		</tr>
 
@@ -874,10 +868,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		add_filter( 'woocommerce_checkout_show_terms', '__return_false' );
 		add_filter( 'woocommerce_pay_order_button_html', '__return_false' );
 		add_filter( 'woocommerce_available_payment_gateways', '__return_empty_array' );
-		add_filter( 'woocommerce_no_available_payment_methods_message', array( $this, 'change_no_available_methods_message' ) );
-		add_action( 'woocommerce_pay_order_after_submit', array( $this, 'render_payment_intent_inputs' ) );
+		add_filter( 'woocommerce_no_available_payment_methods_message', [ $this, 'change_no_available_methods_message' ] );
+		add_action( 'woocommerce_pay_order_after_submit', [ $this, 'render_payment_intent_inputs' ] );
 
-		return array();
+		return [];
 	}
 
 	/**
@@ -906,16 +900,23 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		$intent = $this->get_intent_from_order( $order );
 
 		if ( ! $intent ) {
-			throw new WC_Stripe_Exception( 'Payment Intent not found', __( 'Payment Intent not found for order #' . $order->get_id(), 'woocommerce-gateway-stripe' ) );
+			throw new WC_Stripe_Exception(
+				'Payment Intent not found',
+				sprintf(
+					/* translators: %s is the order Id */
+					__( 'Payment Intent not found for order #%s', 'woocommerce-gateway-stripe' ),
+					$order->get_id()
+				)
+			);
 		}
 
 		if ( 'requires_payment_method' === $intent->status && isset( $intent->last_payment_error )
-		     && 'authentication_required' === $intent->last_payment_error->code ) {
+			 && 'authentication_required' === $intent->last_payment_error->code ) {
 			$level3_data = $this->get_level3_data_from_order( $order );
 			$intent      = WC_Stripe_API::request_with_level3_data(
-				array(
+				[
 					'payment_method' => $intent->last_payment_error->source->id,
-				),
+				],
 				'payment_intents/' . $intent->id . '/confirm',
 				$level3_data,
 				$order
@@ -946,12 +947,12 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		}
 
 		$verification_url = add_query_arg(
-			array(
+			[
 				'order'            => $order->get_id(),
 				'nonce'            => wp_create_nonce( 'wc_stripe_confirm_pi' ),
 				'redirect_to'      => rawurlencode( $this->get_return_url( $order ) ),
 				'is_pay_for_order' => true,
-			),
+			],
 			WC_AJAX::get_endpoint( 'wc_stripe_verify_intent' )
 		);
 
@@ -1013,24 +1014,24 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 
 		// Put the final thank you page redirect into the verification URL.
 		$verification_url = add_query_arg(
-			array(
+			[
 				'order'       => $order_id,
 				'nonce'       => wp_create_nonce( 'wc_stripe_confirm_pi' ),
 				'redirect_to' => rawurlencode( $result['redirect'] ),
-			),
+			],
 			WC_AJAX::get_endpoint( 'wc_stripe_verify_intent' )
 		);
 
 		if ( isset( $result['payment_intent_secret'] ) ) {
 			$redirect = sprintf( '#confirm-pi-%s:%s', $result['payment_intent_secret'], rawurlencode( $verification_url ) );
-		} else if ( isset( $result['setup_intent_secret'] ) ) {
+		} elseif ( isset( $result['setup_intent_secret'] ) ) {
 			$redirect = sprintf( '#confirm-si-%s:%s', $result['setup_intent_secret'], rawurlencode( $verification_url ) );
 		}
 
-		return array(
+		return [
 			'result'   => 'success',
 			'redirect' => $redirect,
-		);
+		];
 	}
 
 	/**
@@ -1048,7 +1049,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 	 * @param WC_Order $order The order which is in a transitional state.
 	 */
 	public function verify_intent_after_checkout( $order ) {
-		$payment_method = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->payment_method : $order->get_payment_method();
+		$payment_method = $order->get_payment_method();
 		if ( $payment_method !== $this->id ) {
 			// If this is not the payment method, an intent would not be available.
 			return;
@@ -1064,7 +1065,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		clean_post_cache( $order->get_id() );
 		$order = wc_get_order( $order->get_id() );
 
-		if ( ! $order->has_status( array( 'pending', 'failed' ) ) ) {
+		if ( ! $order->has_status( [ 'pending', 'failed' ] ) ) {
 			// If payment has already been completed, this function is redundant.
 			return;
 		}
@@ -1080,10 +1081,10 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 			} else {
 				$order->payment_complete();
 			}
-		} else if ( 'succeeded' === $intent->status || 'requires_capture' === $intent->status ) {
+		} elseif ( 'succeeded' === $intent->status || 'requires_capture' === $intent->status ) {
 			// Proceed with the payment completion.
 			$this->handle_intent_verification_success( $order, $intent );
-		} else if ( 'requires_payment_method' === $intent->status ) {
+		} elseif ( 'requires_payment_method' === $intent->status ) {
 			// `requires_payment_method` means that SCA got denied for the current payment method.
 			$this->handle_intent_verification_failure( $order, $intent );
 		}
@@ -1137,7 +1138,7 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 	/**
 	 * Preserves the "wc-stripe-confirmation" URL parameter so the user can complete the SCA authentication after logging in.
 	 *
-	 * @param string $pay_url Current computed checkout URL for the given order.
+	 * @param string   $pay_url Current computed checkout URL for the given order.
 	 * @param WC_Order $order Order object.
 	 *
 	 * @return string Checkout URL for the given order.
@@ -1182,5 +1183,53 @@ class WC_Gateway_Stripe extends WC_Stripe_Payment_Gateway {
 		) {
 			update_option( 'wc_stripe_show_changed_keys_notice', 'yes' );
 		}
+	}
+
+	public function validate_publishable_key_field( $key, $value ) {
+		$value = $this->validate_text_field( $key, $value );
+		if ( ! empty( $value ) && ! preg_match( '/^pk_live_/', $value ) ) {
+			throw new Exception( __( 'The "Live Publishable Key" should start with "pk_live", enter the correct key.', 'woocommerce-gateway-stripe' ) );
+		}
+		return $value;
+	}
+
+	public function validate_secret_key_field( $key, $value ) {
+		$value = $this->validate_text_field( $key, $value );
+		if ( ! empty( $value ) && ! preg_match( '/^[rs]k_live_/', $value ) ) {
+			throw new Exception( __( 'The "Live Secret Key" should start with "sk_live" or "rk_live", enter the correct key.', 'woocommerce-gateway-stripe' ) );
+		}
+		return $value;
+	}
+
+	public function validate_test_publishable_key_field( $key, $value ) {
+		$value = $this->validate_text_field( $key, $value );
+		if ( ! empty( $value ) && ! preg_match( '/^pk_test_/', $value ) ) {
+			throw new Exception( __( 'The "Test Publishable Key" should start with "pk_test", enter the correct key.', 'woocommerce-gateway-stripe' ) );
+		}
+		return $value;
+	}
+
+	public function validate_test_secret_key_field( $key, $value ) {
+		$value = $this->validate_text_field( $key, $value );
+		if ( ! empty( $value ) && ! preg_match( '/^[rs]k_test_/', $value ) ) {
+			throw new Exception( __( 'The "Test Secret Key" should start with "sk_test" or "rk_test", enter the correct key.', 'woocommerce-gateway-stripe' ) );
+		}
+		return $value;
+	}
+
+	/**
+	 * Ensures the statement descriptor about to be saved to options does not contain any invalid characters.
+	 *
+	 * @since 4.8.0
+	 * @param $settings WC_Settings_API settings to be filtered
+	 * @return Filtered settings
+	 */
+	public function settings_api_sanitized_fields( $settings ) {
+		if ( is_array( $settings ) ) {
+			if ( array_key_exists( 'statement_descriptor', $settings ) ) {
+				$settings['statement_descriptor'] = WC_Stripe_Helper::clean_statement_descriptor( $settings['statement_descriptor'] );
+			}
+		}
+		return $settings;
 	}
 }

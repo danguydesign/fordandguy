@@ -4,6 +4,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 	class WC_Connect_Options {
 		/**
 		 * An array that maps a grouped option type to an option name.
+		 *
 		 * @var array
 		 */
 		private static $grouped_options = array(
@@ -48,24 +49,20 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 				'shipping_methods_migrated',
 				'should_display_nux_after_jp_cxn_banner',
 				'needs_tax_environment_setup',
-				'stripe_state',
-				'banner_stripe',
 				'banner_ppec',
-				'stripe_keys',
-				'stripe_status_migrated',
 			);
 		}
 
 		/**
-		 * Deletes all options created by WooCommerce Services, including shipping method options
+		 * Deletes all options created by WooCommerce Shipping & Tax, including shipping method options
 		 */
 		public static function delete_all_options() {
 			if ( defined( 'WOOCOMMERCE_CONNECT_DEV_SERVER_URL' ) ) {
 				return;
 			}
 
-			foreach( self::$grouped_options as $group_key => $group ) {
-				//delete legacy options
+			foreach ( self::$grouped_options as $group_key => $group ) {
+				// delete legacy options
 				foreach ( self::get_option_names( $group_key ) as $group_option ) {
 					delete_option( "wc_connect_$group_option" );
 				}
@@ -85,7 +82,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 		 * Returns the requested option.  Looks in wc_connect_options or wc_connect_$name as appropriate.
 		 *
 		 * @param string $name Option name
-		 * @param mixed $default (optional)
+		 * @param mixed  $default (optional)
 		 *
 		 * @return mixed
 		 */
@@ -100,7 +97,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 				}
 			}
 
-			trigger_error( sprintf( 'Invalid WooCommerce Services option name: %s', $name ), E_USER_WARNING );
+			trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax option name: %s', $name ), E_USER_WARNING );
 			return $default;
 		}
 
@@ -108,11 +105,11 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 		 * Updates the single given option.  Updates wc_connect_options or wc_connect_$name as appropriate.
 		 *
 		 * @param string $name Option name
-		 * @param mixed $value Option value
+		 * @param mixed  $value Option value
 		 *
 		 * @return bool Was the option successfully updated?
 		 */
-		public static function update_option( $name, $value) {
+		public static function update_option( $name, $value ) {
 			if ( self::is_valid( $name, 'non_compact' ) ) {
 				return update_option( "wc_connect_$name", $value );
 			}
@@ -121,7 +118,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 					return self::update_grouped_option( $group, $name, $value );
 				}
 			}
-			trigger_error( sprintf( 'Invalid WooCommerce Services option name: %s', $name ), E_USER_WARNING );
+			trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax option name: %s', $name ), E_USER_WARNING );
 			return false;
 		}
 
@@ -137,7 +134,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 			$result = true;
 			$names  = (array) $names;
 			if ( ! self::is_valid( $names ) ) {
-				trigger_error( sprintf( 'Invalid WooCommerce Services option names: %s', print_r( $names, 1 ) ), E_USER_WARNING );
+				trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax option names: %s', print_r( $names, 1 ) ), E_USER_WARNING );
 				return false;
 			}
 			foreach ( array_intersect( $names, self::get_option_names( 'non_compact' ) ) as $name ) {
@@ -167,7 +164,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 			$option_name = self::get_shipping_method_option_name( $name, $service_id, $service_instance );
 
 			if ( ! $option_name ) {
-				trigger_error( sprintf( 'Invalid WooCommerce Services shipping method option name: %s', $name ), E_USER_WARNING );
+				trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax shipping method option name: %s', $name ), E_USER_WARNING );
 				return $default;
 			}
 
@@ -188,7 +185,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 			$option_name = self::get_shipping_method_option_name( $name, $service_id, $service_instance );
 
 			if ( ! $option_name ) {
-				trigger_error( sprintf( 'Invalid WooCommerce Services shipping method option name: %s', $name ), E_USER_WARNING );
+				trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax shipping method option name: %s', $name ), E_USER_WARNING );
 				return false;
 			}
 
@@ -208,7 +205,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 			$option_name = self::get_shipping_method_option_name( $name, $service_id, $service_instance );
 
 			if ( ! $option_name ) {
-				trigger_error( sprintf( 'Invalid WooCommerce Services shipping method option name: %s', $name ), E_USER_WARNING );
+				trigger_error( sprintf( 'Invalid WooCommerce Shipping & Tax shipping method option name: %s', $name ), E_USER_WARNING );
 				return false;
 			}
 
@@ -235,8 +232,8 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 				return $options[ $name ];
 			}
 
-			//make the grouped options backwards-compatible and migrate the old options
-			$legacy_name = "wc_connect_$name";
+			// make the grouped options backwards-compatible and migrate the old options
+			$legacy_name   = "wc_connect_$name";
 			$legacy_option = get_option( $legacy_name, false );
 			if ( ! $legacy_option ) {
 				return $default;
@@ -258,7 +255,7 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 		}
 
 		private static function delete_grouped_option( $group, $names ) {
-			$options = get_option( self::$grouped_options[ $group ], array() );
+			$options   = get_option( self::$grouped_options[ $group ], array() );
 			$to_delete = array_intersect( $names, self::get_option_names( $group ), array_keys( $options ) );
 			if ( $to_delete ) {
 				foreach ( $to_delete as $name ) {
@@ -293,8 +290,8 @@ if ( ! class_exists( 'WC_Connect_Options' ) ) {
 		/**
 		 * Is the option name valid?
 		 *
-		 * @param string      $name  The name of the option
-		 * @param string      $group The name of the group that the option is in. Defaults to compact.
+		 * @param string $name  The name of the option
+		 * @param string $group The name of the group that the option is in. Defaults to compact.
 		 *
 		 * @return bool Is the option name valid?
 		 */

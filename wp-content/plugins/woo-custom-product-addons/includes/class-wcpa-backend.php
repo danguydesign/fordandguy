@@ -86,7 +86,6 @@ class WCPA_Backend extends WCPA_Order_Meta
 
         $this->script_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
-        register_activation_hook($this->file, array($this, 'install'));
         add_action('upgrader_process_complete', array($this, 'upgrader_process_complete'), 10, 2);
 
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'), 10, 1);
@@ -458,10 +457,7 @@ class WCPA_Backend extends WCPA_Order_Meta
         }
         if (!isset($settings['form_loading_order_by_date'])) {
             $count_posts = wp_count_posts(array('post_type' => WCPA_POST_TYPE));
-            if ($count_posts) {
-                $published_posts = $count_posts->publish;
-            }
-            if ($published_posts > 1) {
+            if ($count_posts && isset($count_posts->publish) && $count_posts->publish>1) {
                 $settings['form_loading_order_by_date'] = false;
             } else {
                 $settings['form_loading_order_by_date'] = true;
@@ -470,10 +466,7 @@ class WCPA_Backend extends WCPA_Order_Meta
 
         if (!isset($settings['hide_empty_data'])) {
             $count_posts = wp_count_posts(array('post_type' => WCPA_POST_TYPE));
-            if ($count_posts) {
-                $published_posts = $count_posts->publish;
-            }
-            if ($published_posts > 1) {
+            if ($count_posts && isset($count_posts->publish) && $count_posts->publish>1) {
                 $settings['hide_empty_data'] = false;
             } else {
                 $settings['hide_empty_data'] = true;

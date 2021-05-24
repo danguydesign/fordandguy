@@ -2,6 +2,8 @@
 
 namespace WPForms\Lite\Admin\Settings;
 
+use WPForms\Admin\Settings\Geolocation;
+
 /**
  * Settings changes and enhancements to educate Lite users on what is
  * available in WPForms Pro.
@@ -38,6 +40,11 @@ class Education {
 			\add_action( 'admin_enqueue_scripts', array( $this, 'enqueues' ) );
 			\add_action( 'wpforms_settings_providers', array( $this, 'providers' ), 10000, 1 );
 		}
+
+		// Geolocation API related hooks.
+		if ( \wpforms_is_admin_page( 'settings', 'geolocation' ) ) {
+			\add_action( 'wpforms_settings_init', [ $this, 'geolocation_settings' ] );
+		}
 	}
 
 	/**
@@ -66,7 +73,7 @@ class Education {
 					'</p>',
 				'doc'     => '<a href="https://wpforms.com/docs/upgrade-wpforms-lite-paid-license/?utm_source=WordPress&amp;utm_medium=link&amp;utm_campaign=liteplugin&amp;utm_content=upgrade-pro" target="_blank" rel="noopener noreferrer" class="already-purchased">' . esc_html__( 'Already purchased?', 'wpforms-lite' ) . '</a>',
 				'button'  => esc_html__( 'Upgrade to PRO', 'wpforms-lite' ),
-				'url'     => esc_url( wpforms_admin_upgrade_link( 'settings-modal', 'upgrade-pro' ) ),
+				'url'     => wpforms_admin_upgrade_link( 'settings-modal', 'upgrade-pro' ),
 				'modal'   => wpforms_get_upgrade_modal_text( 'pro' ),
 			],
 			'elite' => [
@@ -83,7 +90,7 @@ class Education {
 					'</p>',
 				'doc'     => '<a href="https://wpforms.com/docs/upgrade-wpforms-lite-paid-license/?utm_source=WordPress&amp;utm_medium=link&amp;utm_campaign=liteplugin&amp;utm_content=upgrade-elite" target="_blank" rel="noopener noreferrer" class="already-purchased">' . esc_html__( 'Already purchased?', 'wpforms-lite' ) . '</a>',
 				'button'  => esc_html__( 'Upgrade to Elite', 'wpforms-lite' ),
-				'url'     => esc_url( wpforms_admin_upgrade_link( 'builder-modal', 'upgrade-elite' ) ),
+				'url'     => wpforms_admin_upgrade_link( 'settings-modal', 'upgrade-elite' ),
 				'modal'   => wpforms_get_upgrade_modal_text( 'elite' ),
 			],
 		];
@@ -120,11 +127,11 @@ class Education {
 
 		foreach ( $providers as $provider ) {
 
-			/* translators: %s - addon name*/
-			$modal_name = sprintf( \__( '%s addon', 'wpforms' ), $provider['name'] );
+			/* translators: %s - addon name. */
+			$modal_name = sprintf( \__( '%s addon', 'wpforms-lite' ), $provider['name'] );
 
-			/* translators: %s - addon name*/
-			$descr = sprintf( \__( 'Integrate %s with WPForms', 'wpforms' ), $provider['name'] );
+			/* translators: %s - addon name. */
+			$descr = sprintf( \__( 'Integrate %s with WPForms', 'wpforms-lite' ), $provider['name'] );
 
 			printf(
 				'<div id="wpforms-integration-%1$s" class="wpforms-settings-provider wpforms-clear focus-out education-modal" data-name="%2$s" data-action="upgrade" data-url="%3$s" data-license="%4$s">
@@ -148,5 +155,15 @@ class Education {
 				\esc_html( $descr )
 			);
 		}
+	}
+
+	/**
+	 * Add Geolocation settings page.
+	 *
+	 * @since 1.6.5
+	 */
+	public function geolocation_settings() {
+
+		( new Geolocation() )->hooks();
 	}
 }

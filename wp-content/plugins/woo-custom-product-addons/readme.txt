@@ -1,10 +1,10 @@
 ﻿=== Product Addons for Woocommerce ===
-Contributors: acowebs,acowebssupport,ashinacowebs
+Contributors: acowebs
 Tags: WooCommerce custom fields,  WooCommerce product options, WooCommerce product fields, WooCommerce custom price field,WooCommerce personalized product, WooCommerce custom product fields, product fields,
 Requires at least: 3.9
-Tested up to: 5.4.0
+Tested up to: 5.6.1
 Requires PHP: 5.6
-Stable tag: 2.4.2
+Stable tag: 2.4.13
 
 
 WooCommerce Product Addons. Add custom fields to your WooCommerce product page. With an easy-to-use Custom Form Builder.
@@ -23,27 +23,41 @@ For instance, if you need to collect more information from users (or customer wa
 [youtube http://www.youtube.com/watch?v=KP4B6APZUqE&rel=0]
 
 ==BASIC FEATURES==
-<ul>
-<li>WooCommerce extra product options plugin comes with a drag and drop form builder and supports the following form elements:
+
+👉 WooCommerce extra product options plugin comes with a drag and drop form builder and supports the following form elements:
+
 
 🔹 <strong>Text field</strong> - A normal text input field to collect text data.
+
 🔹 <strong>Number field</strong> -  An HTML5 number input field to accept numbers.
+
 🔹 <strong>Radio field</strong> - For selecting one option from multiple choices.
+
 🔹 <strong>Checkbox field</strong> - For selecting more than one option.
+
 🔹 <strong>Select field</strong> -  A drop-down to choose from the available list.
+
 🔹 <strong>Textarea field</strong> - For input details longer than a single line.
+
 🔹 <strong>Date field</strong> (depends on the browser) - HTML5 default date picker.
+
 🔹 <strong>Color field</strong> (depends on the browser) - HTML5 default color picker.
+
 🔹 <strong>Hidden field</strong> - A hidden input field for admin.
+
 🔹 <strong>Password field</strong> - A password input text field to collect passwords.
+
 🔹 <strong>Email field</strong> - HTML5 email field to validate correct email ID format.
-</li>
-<li>And apart from above, following HTML tags are also supported
+
+
+And apart from above, following HTML tags are also supported
 
 🔹<strong>Paragraph (p) tag</strong> - To set instruction in product page using HTML paragraph tag which will accept basic HTML tags like anchor, bold, image etc.
+
 🔹<strong>Header (h) tag</strong> - To set HTML header tags (h1, h2 & h3) in product the page.
-</li>
-</ul>
+
+
+
 <h3>DEMO - CHECK THIS OUT IN REAL</h3>
 Check how woocommerce product custom options are created!
 
@@ -58,21 +72,23 @@ Woocommerce custom product addons premium version is supercharged with a bunch o
 ➡ <strong>[GET PREMIUM VERSION NOW!](https://acowebs.com/woo-custom-product-addons/?ref=wcpa-readme) </strong>
 
 <blockquote>
-<p>💢 <strong>Custom Price Fields</strong> - Woocommerce product price fields can be set for all the fields available with the plugin. The price can be a fixed value, percentage value of the product base price or based on a custom formula.</p>
-<p>💢 <strong>Custom Price Formula</strong> - To calculate price using a mathematical formula based on user input value, product quantity and product base price.</p>
-<p>💢 <strong>Upload Field</strong> - To collect file from users which can be images, Videos, Documents and anything that is supported by WordPress. </p>
-<p>💢 <strong>Multi-select Field</strong> - This allows users to make multiple selections from different choices.</p>
-<p>💢 <strong>Image Selection</strong> - helps to set custom images to choose from. Admin can add as many images in the backend in any size and it can be configured to select multiple as well as a single image.</p>
-<p>💢 <strong>Color Group</strong> - works the similar way the checkbox and radio groups works, it can set custom color box or circle instead of the default checkbox fields and the selected item will marked with a check mark.</p>
-<p>💢 <strong>Custom Date picker</strong> - (supports for all browsers) - Date field, date and time field are available with this plugin. Users can choose the date from the custom designed calendar also can enter the value directly. </p>
-<p>💢 <strong>Time Picker</strong> (supports for all browsers)- Shows a list of time slots from which user can select one. </p>
-<p>💢 <strong>Custom Color picker</strong> (supports for all browser) - The user can select the color form the custom designed color picker. The value of this field will be hex color code which admin can view along with the order.</p>
-<p>💢 <strong>Conditional Logic</strong> - To show or hide some fields based on the value selected for other fields. 18 type of conditions are available in this plugin.</p>
-<p>💢 <strong>Google Map Place Selector</strong> - Location selector using Google Places API for suggesting the location as user types. Also user can select a location in the map provided.</p>
-<p>💢 <strong>Grid/Column alignment</strong> - Now you can easily align fields inline as grid/columns.</p>
-<p>💢 <strong>Tool Tip and Help Text</strong> - Help text for each field can be set, which can be shown as either tool tip or as a text alongside the label.</p>
+<p>👉 <strong>Custom Price Fields</strong> - Woocommerce product price fields can be set for all the fields available with the plugin. The price can be a fixed value, percentage value of the product base price or based on a custom formula.</p>
+<p>👉 <strong>Custom Price Formula</strong> - To calculate price using a mathematical formula based on user input value, product quantity and product base price.</p>
+<p>👉 <strong>Upload Field</strong> - To collect file from users which can be images, Videos, Documents and anything that is supported by WordPress. </p>
+<p>👉 <strong>Multi-select Field</strong> - This allows users to make multiple selections from different choices.</p>
+<p>👉 <strong>Image Selection</strong> - helps to set custom images to choose from. Admin can add as many images in the backend in any size and it can be configured to select multiple as well as a single image.</p>
+<p>👉 <strong>Color Group</strong> - works the similar way the checkbox and radio groups works, it can set custom color box or circle instead of the default checkbox fields and the selected item will marked with a check mark.</p>
+<p>👉 <strong>Custom Date picker</strong> - (supports for all browsers) - Date field, date and time field are available with this plugin. Users can choose the date from the custom designed calendar also can enter the value directly. </p>
+<p>👉 <strong>Time Picker</strong> (supports for all browsers)- Shows a list of time slots from which user can select one. </p>
+<p>👉 <strong>Custom Color picker</strong> (supports for all browser) - The user can select the color form the custom designed color picker. The value of this field will be hex color code which admin can view along with the order.</p>
+<p>👉 <strong>Conditional Logic</strong> - To show or hide some fields based on the value selected for other fields. 18 type of conditions are available in this plugin.</p>
+<p>👉 <strong>Google Map Place Selector</strong> - Location selector using Google Places API for suggesting the location as user types. Also user can select a location in the map provided.</p>
+<p>👉 <strong>Grid/Column alignment</strong> - Now you can easily align fields inline as grid/columns.</p>
+<p>👉 <strong>Tool Tip and Help Text</strong> - Help text for each field can be set, which can be shown as either tool tip or as a text alongside the label.</p>
 And many more features…
 </blockquote>
+
+
 <strong>*Why WooCommerce Custom Product Addons Plugin?*</strong>
 
 ✅ 20+ Field Types
@@ -122,6 +138,36 @@ Inorder to show the Woocommerce product options plugin fields, it is mandatory t
 That means, it must have price set and must be in stock
 
 == Changelog ==
+
+= 2.4.13 =
+* WooCommerce 5.0.x Support
+= 2.4.12  =
+* WooCommerce 4.9.x Support
+= 2.4.11  =
+* WooCommerce 4.8.x Support
+* Wordpress 5.6.x Support
+= 2.4.10  =
+ WooCommerce 4.7.x Support
+ Bug fixes
+= 2.4.9  =
+ WooCommerce 4.6.x Support
+ added filter for changing form render position
+= 2.4.8  =
+ WooCommerce 4.5.x Support
+= 2.4.7  =
+* Bug fix: css conflict with businessx theme
+= 2.4.6  =
+* Wordpress 5.5.x Support
+* WooCommerce 4.4.x Support
+* Bug fixes
+
+= 2.4.5  =
+* WooCommerce 4.3.0 Support
+= 2.4.4  =
+* WooCommerce 4.2.0 Support
+* Bug fixes
+= 2.4.3  =
+* WooCommerce 4.1.0 Support
 = 2.4.2  =
 * WooCommerce 4.0.1 Support
 = 2.4.0 / 2.4.1 =

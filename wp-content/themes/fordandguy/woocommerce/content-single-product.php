@@ -69,7 +69,10 @@ if ( post_password_required() ) {
 				<a class="accordion"><h3>Product Details</h3></a>
 				<div class="acc-panel">
 					<div class="acc-content">
-						<?php echo apply_filters( 'the_content', $product->post->post_content ) ?>
+						<?php  defined( 'ABSPATH' ) || exit;
+							global $post;
+						?>
+						<?php the_content(); ?>
 					</div>
 				</div>
 				<hr>
@@ -85,8 +88,6 @@ if ( post_password_required() ) {
 								wp_reset_query();
 							?>
 						</p>
-						<?php // do_action( 'woocommerce_product_additional_information', $product ); ?>
-						<!-- <a href="fordandguy/information/"><p>Read more</p></a> -->
 					</div>
 				</div>
 				<hr>

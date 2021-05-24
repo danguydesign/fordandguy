@@ -92,15 +92,6 @@ namespace WPForms {
 		public $smart_tags;
 
 		/**
-		 * The Logging instance.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var \WPForms_Logging
-		 */
-		public $logs;
-
-		/**
 		 * The License class instance (Pro).
 		 *
 		 * @since 1.0.0
@@ -123,7 +114,7 @@ namespace WPForms {
 		 *
 		 * @since 1.3.9
 		 *
-		 * @var boolean
+		 * @var bool
 		 */
 		public $pro = false;
 
@@ -145,8 +136,8 @@ namespace WPForms {
 		/**
 		 * Main WPForms Instance.
 		 *
-		 * Insures that only one instance of WPForms exists in memory at any one
-		 * time. Also prevents needing to define globals all over the place.
+		 * Only one instance of WPForms exists in memory at any one time.
+		 * Also prevent the need to define globals all over the place.
 		 *
 		 * @since 1.0.0
 		 *
@@ -170,7 +161,7 @@ namespace WPForms {
 					require_once WPFORMS_PLUGIN_DIR . 'lite/wpforms-lite.php';
 				}
 
-				add_action( 'plugins_loaded', array( self::$instance, 'load_textdomain' ), 10 );
+				add_action( 'init', array( self::$instance, 'load_textdomain' ), 10 );
 				add_action( 'plugins_loaded', array( self::$instance, 'objects' ), 10 );
 			}
 
@@ -197,13 +188,21 @@ namespace WPForms {
 		}
 
 		/**
-		 * Loads the plugin language files.
+		 * Load the plugin language files.
 		 *
 		 * @since 1.0.0
 		 * @since 1.5.0 Load only the lite translation.
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( 'wpforms-lite', false, dirname( plugin_basename( WPFORMS_PLUGIN_FILE ) ) . '/languages/' );
+
+			// If the user is logged in, unset the current text-domains before loading our text domain.
+			// This feels hacky, but this way a user's set language in their profile will be used,
+			// rather than the site-specific language.
+			if ( is_user_logged_in() ) {
+				unload_textdomain( 'wpforms-lite' );
+			}
+
+			load_plugin_textdomain( 'wpforms-lite', false, dirname( plugin_basename( WPFORMS_PLUGIN_FILE ) ) . '/assets/languages/' );
 		}
 
 		/**
@@ -230,7 +229,6 @@ namespace WPForms {
 			require_once WPFORMS_PLUGIN_DIR . 'includes/class-providers.php';
 			require_once WPFORMS_PLUGIN_DIR . 'includes/class-process.php';
 			require_once WPFORMS_PLUGIN_DIR . 'includes/class-smart-tags.php';
-			require_once WPFORMS_PLUGIN_DIR . 'includes/class-logging.php';
 			require_once WPFORMS_PLUGIN_DIR . 'includes/class-widget.php';
 			require_once WPFORMS_PLUGIN_DIR . 'includes/class-conditional-logic-core.php';
 			require_once WPFORMS_PLUGIN_DIR . 'includes/emails/class-emails.php';
@@ -319,7 +317,6 @@ namespace WPForms {
 			$this->frontend   = new \WPForms_Frontend();
 			$this->process    = new \WPForms_Process();
 			$this->smart_tags = new \WPForms_Smart_Tags();
-			$this->logs       = new \WPForms_Logging();
 
 			// Hook now that all of the WPForms stuff is loaded.
 			do_action( 'wpforms_loaded' );
@@ -400,7 +397,7 @@ namespace WPForms {
 		 *
 		 * @param string $name Class name or an alias.
 		 *
-		 * @return mixed|null
+		 * @return mixed|\stdClass
 		 */
 		public function get( $name ) {
 
@@ -408,7 +405,23 @@ namespace WPForms {
 				return $this->registry[ $name ];
 			}
 
-			return null;
+			return new \stdClass();
+		}
+
+		/**
+		 * Get the list of all custom tables starting with `wpforms_*`.
+		 *
+		 * @since 1.6.3
+		 *
+		 * @return array List of table names.
+		 */
+		public function get_existing_custom_tables() {
+
+			global $wpdb;
+
+			$tables = $wpdb->get_results( "SHOW TABLES LIKE '" . $wpdb->prefix . "wpforms_%'", 'ARRAY_N' ); // phpcs:ignore
+
+			return ! empty( $tables ) ? wp_list_pluck( $tables, 0 ) : array();
 		}
 	}
 }

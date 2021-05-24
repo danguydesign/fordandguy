@@ -5,7 +5,7 @@ if (!defined('ABSPATH'))
 
 class WCPA_Front_End extends WCPA_Order_Meta
 {
-
+    public $hooked_field_tag = false;
     static $cart_error = array();
     /**
      * The single instance of WordPress_Plugin_Template_Settings.
@@ -64,7 +64,17 @@ class WCPA_Front_End extends WCPA_Order_Meta
 
             $this->file = $file;
             $this->assets_url = esc_url(trailingslashit(plugins_url('/assets/', $this->file)));
-            add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'), 10);
+//            add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'), 10);
+
+            add_action('init', array(
+                $this,
+                'render_init_function'
+            )); // initiate render methods after init it will work in all cases
+            add_action('woocommerce_before_add_to_cart_form', array(
+                $this,
+                'render_init_function'
+            ));// initiate render methods after loading $product,
+            // $product might be needed to set hooks based on product loaded
 
             add_filter('woocommerce_add_cart_item_data', array($this, 'add_cart_item_data'), 10, 3);
             add_filter('woocommerce_add_to_cart_validation', array($this, 'add_to_cart_validation'), 10, 3);
@@ -72,7 +82,10 @@ class WCPA_Front_End extends WCPA_Order_Meta
             add_filter('post_class', array($this, 'product_class'), 10, 3);
 
             add_filter('woocommerce_order_item_display_meta_value', array($this, 'display_meta_value'), 10, 3);
-            add_action('woocommerce_checkout_order_processed', array($this, 'checkout_order_processed'), 10, 3);
+          //  add_action('woocommerce_checkout_order_processed', array($this, 'checkout_order_processed'), 10, 3);
+	        add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'checkout_order_processed' ), 1, 1 );
+
+
 
             add_action('woocommerce_checkout_subscription_created', array($this, 'checkout_subscription_created'), 10, 1);//compatibility with subscription plugin
 
@@ -92,6 +105,8 @@ class WCPA_Front_End extends WCPA_Order_Meta
 
 
             add_action('woocommerce_single_product_summary', array($this, 'check_if_product_has_set_price'), 30);
+
+            add_filter('wc_stripe_hide_payment_request_on_product_page', array($this, 'disable_apple_pay'), 10, 2);
 
 
         }
@@ -118,7 +133,20 @@ class WCPA_Front_End extends WCPA_Order_Meta
             return isset(self::$cart_error[$product_id]) ? self::$cart_error[$product_id] : false;
         }
     }
-
+    public function render_init_function()
+    {
+        if ($this->hooked_field_tag !== false) {
+            remove_action($this->hooked_field_tag[0], array(
+                $this,
+                'before_add_to_cart_button'
+            ), $this->hooked_field_tag[1]);
+        }
+        $this->hooked_field_tag = get_wcpa_display_hook("fields");
+        add_action($this->hooked_field_tag[0], array(
+            $this,
+            'before_add_to_cart_button'
+        ), $this->hooked_field_tag[1]);
+    }
     static function set_cart_error($product_id, $status)
     {
         self::$cart_error[$product_id] = $status;
@@ -231,6 +259,15 @@ class WCPA_Front_End extends WCPA_Order_Meta
 
         return $classes;
     }
+
+    public function disable_apple_pay($status,$product = false)
+    {
+        if ($product && $this->is_wcpa_product($product->ID)) {
+           $status = true;
+        }
+        return $status;
+    }
+
 
     public function order_item_get_formatted_meta_data($formatted_meta, $item)
     {

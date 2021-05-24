@@ -13,9 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	/**
 	 * Notices (array)
+	 *
 	 * @var array
 	 */
-	public $notices = array();
+	public $notices = [];
 
 	/**
 	 * Is test mode active?
@@ -60,10 +61,10 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 		$this->method_title = __( 'Stripe Multibanco', 'woocommerce-gateway-stripe' );
 		/* translators: link */
 		$this->method_description = sprintf( __( 'All other general Stripe settings can be adjusted <a href="%s">here</a>.', 'woocommerce-gateway-stripe' ), admin_url( 'admin.php?page=wc-settings&tab=checkout&section=stripe' ) );
-		$this->supports           = array(
+		$this->supports           = [
 			'products',
 			'refunds',
-		);
+		];
 
 		// Load the form fields.
 		$this->init_form_fields();
@@ -86,12 +87,12 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 			$this->secret_key      = ! empty( $main_settings['test_secret_key'] ) ? $main_settings['test_secret_key'] : '';
 		}
 
-		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'payment_scripts' ) );
-		add_action( 'woocommerce_thankyou_stripe_multibanco', array( $this, 'thankyou_page' ) );
+		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, [ $this, 'process_admin_options' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'payment_scripts' ] );
+		add_action( 'woocommerce_thankyou_stripe_multibanco', [ $this, 'thankyou_page' ] );
 
 		// Customer Emails
-		add_action( 'woocommerce_email_before_order_table', array( $this, 'email_instructions' ), 10, 3 );
+		add_action( 'woocommerce_email_before_order_table', [ $this, 'email_instructions' ], 10, 3 );
 	}
 
 	/**
@@ -104,9 +105,9 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	public function get_supported_currency() {
 		return apply_filters(
 			'wc_stripe_multibanco_supported_currencies',
-			array(
+			[
 				'EUR',
-			)
+			]
 		);
 	}
 
@@ -143,11 +144,7 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	}
 
 	/**
-	 * payment_scripts function.
-	 *
 	 * Outputs scripts used for stripe payment
-	 *
-	 * @access public
 	 */
 	public function payment_scripts() {
 		if ( ! is_cart() && ! is_checkout() && ! isset( $_GET['pay_for_order'] ) && ! is_add_payment_method_page() ) {
@@ -162,20 +159,21 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	 * Initialize Gateway Settings Form Fields.
 	 */
 	public function init_form_fields() {
-		$this->form_fields = require( WC_STRIPE_PLUGIN_PATH . '/includes/admin/stripe-multibanco-settings.php' );
+		$this->form_fields = require WC_STRIPE_PLUGIN_PATH . '/includes/admin/stripe-multibanco-settings.php';
 	}
 
 	/**
 	 * Payment form on checkout page
 	 */
 	public function payment_fields() {
+		global $wp;
 		$user        = wp_get_current_user();
 		$total       = WC()->cart->total;
 		$description = $this->get_description();
 
 		// If paying from order, we need to get total from order not cart.
 		if ( isset( $_GET['pay_for_order'] ) && ! empty( $_GET['key'] ) ) {
-			$order = wc_get_order( wc_get_order_id_by_order_key( wc_clean( $_GET['key'] ) ) );
+			$order = wc_get_order( wc_clean( $wp->query_vars['order-pay'] ) );
 			$total = $order->get_total();
 		}
 
@@ -213,13 +211,13 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	 * @since 4.1.0
 	 * @version 4.1.0
 	 * @param WC_Order $order
-	 * @param bool $sent_to_admin
-	 * @param bool $plain_text
+	 * @param bool     $sent_to_admin
+	 * @param bool     $plain_text
 	 */
 	public function email_instructions( $order, $sent_to_admin, $plain_text = false ) {
-		$order_id = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->id : $order->get_id();
+		$order_id = $order->get_id();
 
-		$payment_method = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->payment_method : $order->get_payment_method();
+		$payment_method = $order->get_payment_method();
 
 		if ( ! $sent_to_admin && 'stripe_multibanco' === $payment_method && $order->has_status( 'on-hold' ) ) {
 			WC_Stripe_Logger::log( 'Sending multibanco email for order #' . $order_id );
@@ -279,13 +277,13 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	 * @param object $source_object
 	 */
 	public function save_instructions( $order, $source_object ) {
-		$data = array(
+		$data = [
 			'amount'    => $order->get_formatted_order_total(),
 			'entity'    => $source_object->multibanco->entity,
 			'reference' => $source_object->multibanco->reference,
-		);
+		];
 
-		$order_id = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->id : $order->get_id();
+		$order_id = $order->get_id();
 
 		update_post_meta( $order_id, '_stripe_multibanco', $data );
 	}
@@ -299,15 +297,14 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 	 * @return mixed
 	 */
 	public function create_source( $order ) {
-		$currency              = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->get_order_currency() : $order->get_currency();
-		$order_id              = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->id : $order->get_id();
+		$currency              = $order->get_currency();
 		$return_url            = $this->get_stripe_return_url( $order );
-		$post_data             = array();
+		$post_data             = [];
 		$post_data['amount']   = WC_Stripe_Helper::get_stripe_amount( $order->get_total(), $currency );
 		$post_data['currency'] = strtolower( $currency );
 		$post_data['type']     = 'multibanco';
 		$post_data['owner']    = $this->get_owner_details( $order );
-		$post_data['redirect'] = array( 'return_url' => $return_url );
+		$post_data['redirect'] = [ 'return_url' => $return_url ];
 
 		if ( ! empty( $this->statement_descriptor ) ) {
 			$post_data['statement_descriptor'] = WC_Stripe_Helper::clean_statement_descriptor( $this->statement_descriptor );
@@ -340,7 +337,7 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 			$create_account = ! empty( $_POST['createaccount'] ) ? true : false;
 
 			if ( $create_account ) {
-				$new_customer_id     = WC_Stripe_Helper::is_wc_lt( '3.0' ) ? $order->customer_user : $order->get_customer_id();
+				$new_customer_id     = $order->get_customer_id();
 				$new_stripe_customer = new WC_Stripe_Customer( $new_customer_id );
 				$new_stripe_customer->create_customer();
 			}
@@ -353,12 +350,8 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 				throw new Exception( $response->error->message );
 			}
 
-			if ( WC_Stripe_Helper::is_wc_lt( '3.0' ) ) {
-				update_post_meta( $order_id, '_stripe_source_id', $response->id );
-			} else {
-				$order->update_meta_data( '_stripe_source_id', $response->id );
-				$order->save();
-			}
+			$order->update_meta_data( '_stripe_source_id', $response->id );
+			$order->save();
 
 			$this->save_instructions( $order, $response );
 
@@ -373,24 +366,24 @@ class WC_Gateway_Stripe_Multibanco extends WC_Stripe_Payment_Gateway {
 
 			WC_Stripe_Logger::log( 'Info: Redirecting to Multibanco...' );
 
-			return array(
+			return [
 				'result'   => 'success',
 				'redirect' => esc_url_raw( $response->redirect->url ),
-			);
+			];
 		} catch ( Exception $e ) {
 			wc_add_notice( $e->getMessage(), 'error' );
 			WC_Stripe_Logger::log( 'Error: ' . $e->getMessage() );
 
 			do_action( 'wc_gateway_stripe_process_payment_error', $e, $order );
 
-			if ( $order->has_status( array( 'pending', 'failed' ) ) ) {
+			if ( $order->has_status( [ 'pending', 'failed' ] ) ) {
 				$this->send_failed_order_email( $order_id );
 			}
 
-			return array(
+			return [
 				'result'   => 'fail',
 				'redirect' => '',
-			);
+			];
 		}
 	}
 }

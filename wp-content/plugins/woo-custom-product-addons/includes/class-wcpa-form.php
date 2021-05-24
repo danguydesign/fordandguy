@@ -353,6 +353,7 @@ class WCPA_Form {
         switch ($v->type) {
             case 'text':
             case 'date':
+            case 'hidden':
             case 'number':
             case 'textarea':
             case 'color':
@@ -378,7 +379,7 @@ class WCPA_Form {
                 } else if ($v->values && !(isset($_REQUEST['add-to-cart']) && $this->cart_error)) { // if it is direct product page load, not add-to-cart has set
                     foreach ($v->values as $k => $val) {
                         if (isset($val->selected)) {
-                            $default_value[$k] = $val->selected;
+                            $default_value[$k] = $val->value;
                         }
                     }
                 }
@@ -641,7 +642,9 @@ class WCPA_Form {
         if ($v->values && !empty($v->values)) {
             echo '<div ' . $className . '>';
             foreach ($v->values as $k => $val) {
-                $chkd = (isset($val->selected)) ? 'checked="checked"' : '';
+
+                $is_selected = isset($default_value[$k]) && $default_value[$k] !== false;
+                $chkd = $is_selected ? 'checked="checked"' : '';
                 $price = '';
 
                 $option_class = '';
@@ -655,7 +658,7 @@ class WCPA_Form {
 
 
                 echo '<div class="wcpa_checkbox">
-                    <input name="' . $name . '[' . $k . ']" ' . $option_class . '" id="' . $name . '_' . $k . '" value="' . $val->value . '" type="checkbox" ' . $chkd . ' >
+                    <input name="' . $name . '[' . $k . ']" ' . $option_class . ' id="' . $name . '_' . $k . '" value="' . $val->value . '" type="checkbox" ' . $chkd . ' >
                           
 <label for="' . $name . '_' . $k . '"> <span class="wcpa_check"></span>' . $label . '</label>
                     </div>';
@@ -689,7 +692,7 @@ class WCPA_Form {
                 if (is_array($default_value)) {
                     $is_selected = isset($default_value[$k]) ? $default_value[$k] : false;
                 } else {
-                    $is_selected = ($default_value == $val->value) ? true : false;
+                    $is_selected = $default_value == $val->value;
                 }
 
                 $price = '';
@@ -750,8 +753,12 @@ class WCPA_Form {
 
                 $label = $val->label;
 
-
-                $selectedchk = (isset($val->selected)) ? 'selected="selected"' : '';
+                if (is_array($default_value)) {
+                    $is_selected = in_array($val->value, $default_value);
+                } else {
+                    $is_selected = $default_value === $this->sanitize_values($val->value);
+                }
+                $selectedchk = $is_selected ? 'selected="selected"' : '';
                 echo '<option  value="' . $val->value . '" ' . $selectedchk . '>' . $label . '</option>';
             }
             echo '</select><div class="select_arrow"></div></div>';
