@@ -23,7 +23,7 @@ class WPForms_Builder_Panel_Payments extends WPForms_Builder_Panel {
 	}
 
 	/**
-	 * Outputs the Payments panel sidebar.
+	 * Output the Payments panel sidebar.
 	 *
 	 * @since 1.0.0
 	 */
@@ -40,7 +40,7 @@ class WPForms_Builder_Panel_Payments extends WPForms_Builder_Panel {
 	}
 
 	/**
-	 * Outputs the Payments panel primary content.
+	 * Output the Payments panel primary content.
 	 *
 	 * @since 1.0.0
 	 */
@@ -105,8 +105,8 @@ class WPForms_Builder_Panel_Payments extends WPForms_Builder_Panel {
 
 			// Everything is good - display default instructions.
 			echo '<div class="wpforms-panel-content-section wpforms-panel-content-section-default">';
-			echo '<h5>' . esc_html__( 'Select Your Payment Integration', 'wpforms-lite' ) . '</h5>';
-			echo '<p>' . esc_html__( 'Select your payment provider from the options on the left. If you don\'t see your payment service listed, then let us know and we\'ll do our best to get it added as fast as possible.', 'wpforms-lite' ) . '</p>';
+			echo '<h5>' . esc_html__( 'Install Your Payment Integration', 'wpforms-lite' ) . '</h5>';
+			echo '<p>' . esc_html__( 'It seems you don\'t have any payment addons activated. Click one of the available addons and start accepting payments today!', 'wpforms-lite' ) . '</p>';
 			echo '</div>';
 		}
 

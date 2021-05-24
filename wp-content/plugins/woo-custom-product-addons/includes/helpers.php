@@ -31,6 +31,18 @@ if (!function_exists('wcpa_get_option')) {
 
 }
 
+if (!function_exists('get_wcpa_display_hook')) {
+    function get_wcpa_display_hook($arg)
+    {
+        $hooks = apply_filters('wcpa_display_hooks', [
+            "fields" => ["woocommerce_before_add_to_cart_button", 10]
+        ]);
+        return $hooks[$arg];
+    }
+
+
+}
+
 if (!function_exists('wcpa_empty')) {
 
     /**
@@ -42,6 +54,27 @@ if (!function_exists('wcpa_empty')) {
         } else {
             return ($var === null || $var === false || $var === '');
         }
+    }
+
+}
+
+if (!function_exists('wcpa_is_wcpa_product')) {
+
+    /**
+     * @return string
+     */
+    function wcpa_is_wcpa_product($product_id)
+    {
+
+        $form = new WCPA_Form();
+        $products = $form->get_wcpa_products();
+        if(is_array($products)){
+            return in_array($product_id, $products);
+        }else{
+            return false;
+        }
+
+
     }
 
 }

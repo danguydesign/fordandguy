@@ -1,22 +1,17 @@
 <?php
-/**
- * Builder related functions.
- *
- * @since 1.0.0
- */
 
 /**
- * Outputs fields to be used on panels (settings etc).
+ * Output fields to be used on panels (settings etc).
  *
  * @since 1.0.0
  *
  * @param string $option
  * @param string $panel
  * @param string $field
- * @param array $form_data
+ * @param array  $form_data
  * @param string $label
- * @param array $args
- * @param boolean $echo
+ * @param array  $args
+ * @param bool   $echo
  *
  * @return string
  */
@@ -215,8 +210,12 @@ function wpforms_panel_field( $option, $panel, $field, $form_data, $label, $args
 				$available_fields = wpforms_get_form_fields( $form_data, $args['field_map'] );
 				if ( ! empty( $available_fields ) ) {
 					foreach ( $available_fields as $id => $available_field ) {
-						$lbl            = ! empty( $available_field['label'] ) ? esc_attr( $available_field['label'] ) : esc_html__( 'Field #' ) . $id;
-						$options[ $id ] = $lbl;
+						$options[ $id ] = ! empty( $available_field['label'] )
+							? esc_attr( $available_field['label'] )
+							: sprintf( /* translators: %d - field ID. */
+								esc_html__( 'Field #%d', 'wpforms-lite' ),
+								absint( $id )
+							);
 					}
 				}
 				$input_class .= ' wpforms-field-map-select';
@@ -295,22 +294,6 @@ function wpforms_panel_field( $option, $panel, $field, $form_data, $label, $args
 }
 
 /**
- * Get notification state, whether it's opened or closed.
- *
- * @since 1.4.1
- * @deprecated 1.4.8
- *
- * @param int $form_id
- * @param int $notification_id
- *
- * @return string
- */
-function wpforms_builder_notification_get_state( $form_id, $notification_id ) {
-	_deprecated_function( __FUNCTION__, '1.4.8 of WPForms plugin', 'wpforms_builder_settings_block_get_state()' );
-	return wpforms_builder_settings_block_get_state( $form_id, $notification_id, 'notification' );
-}
-
-/**
  * Get settings block state, whether it's opened or closed.
  *
  * @since 1.4.8
@@ -364,7 +347,7 @@ function wpforms_builder_settings_block_get_state( $form_id, $block_id, $block_t
 
 /**
  * Get the list of allowed tags, used in pair with wp_kses() function.
- * Allows getting rid of all potentially harmful HTML tags and attributes.
+ * This allows getting rid of all potentially harmful HTML tags and attributes.
  *
  * @since 1.5.9
  *

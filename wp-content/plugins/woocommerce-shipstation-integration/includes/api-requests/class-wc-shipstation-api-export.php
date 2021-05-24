@@ -34,6 +34,7 @@ class WC_Shipstation_API_Export extends WC_Shipstation_API_Request {
 		$tz_offset         = get_option( 'gmt_offset' ) * 3600;
 		$raw_start_date    = wc_clean( urldecode( $_GET['start_date'] ) );
 		$raw_end_date      = wc_clean( urldecode( $_GET['end_date'] ) );
+		$store_weight_unit = get_option('woocommerce_weight_unit');
 
 		// Parse start and end date
 		if ( $raw_start_date && false === strtotime( $raw_start_date ) ) {
@@ -134,6 +135,7 @@ class WC_Shipstation_API_Export extends WC_Shipstation_API_Request {
 			$this->xml_append( $order_xml, 'LastModified', gmdate( 'm/d/Y H:i', $last_modified ), false );
 			$this->xml_append( $order_xml, 'ShippingMethod', implode( ' | ', $this->get_shipping_methods( $order ) ) );
 
+			$this->xml_append( $order_xml, 'CurrencyCode', get_woocommerce_currency(), false );
 			$this->xml_append( $order_xml, 'OrderTotal', $order->get_total(), false );
 			$this->xml_append( $order_xml, 'TaxAmount', wc_round_tax_total( $order->get_total_tax() ), false );
 
@@ -234,11 +236,17 @@ class WC_Shipstation_API_Export extends WC_Shipstation_API_Request {
 					$this->xml_append( $item_xml, 'Name', $product->get_title() );
 					// image data
 					$image_id   = $product->get_image_id();
-					$image_url = $image_id ? current( wp_get_attachment_image_src( $image_id, 'shop_thumbnail' ) ) : '';
+					$image_url = $image_id ? current( wp_get_attachment_image_src( $image_id, 'woocommerce_gallery_thumbnail' ) ) : '';
 					$this->xml_append( $item_xml, 'ImageUrl', $image_url );
 
-					$this->xml_append( $item_xml, 'Weight', wc_get_weight( $product->get_weight(), 'oz' ), false );
-					$this->xml_append( $item_xml, 'WeightUnits', 'Ounces', false );
+					if ( 'kg' === $store_weight_unit ) {
+						$this->xml_append( $item_xml, 'Weight', wc_get_weight( $product->get_weight(), 'g' ), false );
+						$this->xml_append( $item_xml, 'WeightUnits', 'Grams', false );	
+					} else {
+						$this->xml_append( $item_xml, 'Weight', $product->get_weight(), false );
+						$this->xml_append( $item_xml, 'WeightUnits', $this->get_shipstation_weight_units( $store_weight_unit ), false );
+					}
+					
 					$this->xml_append( $item_xml, 'Quantity', $item['qty'], false );
 					$this->xml_append( $item_xml, 'UnitPrice', $order->get_item_subtotal( $item, false, true ), false );
 				}
@@ -293,7 +301,7 @@ class WC_Shipstation_API_Export extends WC_Shipstation_API_Request {
 
 			// Append items XML
 			$order_xml->appendChild( $items_xml );
-			$orders_xml->appendChild( $order_xml );
+			$orders_xml->appendChild( apply_filters( 'woocommerce_shipstation_export_order_xml', $order_xml ) );
 
 			$exported ++;
 
@@ -369,6 +377,22 @@ class WC_Shipstation_API_Export extends WC_Shipstation_API_Request {
 			$data->appendChild( $append_to->ownerDocument->createCDATASection( $value ) );
 		} else {
 			$data->appendChild( $append_to->ownerDocument->createTextNode( $value ) );
+		}
+	}
+
+	/**
+	 * Convert weight unit abbreviation to Shipstation enum (Pounds, Ounces, Grams)
+	 */
+	private function get_shipstation_weight_units( $unit_abbreviation ) {
+		switch( $unit_abbreviation ) {
+			case 'lbs':
+				return 'Pounds';
+			case 'oz':
+				return 'Ounces';
+			case 'g':
+				return 'Grams';
+			default:
+				return $unit_abbreviation;
 		}
 	}
 }
