@@ -1,0 +1,38 @@
+// Media queries
+@mixin break($point) {
+  @if $point == s {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == m {
+    @media (min-width: 1025px) { @content; }
+  }
+  @else if $point == l {
+    @media (min-width: 1250px)  { @content; }
+  }
+  @else if $point == xl {
+    @media (min-width: 1400px)  { @content; }
+  }
+}
+
+// Flex
+@mixin flex($direction) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  @if $direction == column {
+ -webkit-flex-direction:vertical;
+ -moz-flex-direction:vertical;
+ -ms-flex-direction:column;
+ -webkit-flex-direction:column;
+ flex-direction:column;
+ }
+ @else {
+ -webkit-flex-direction:horizontal;
+ -moz-flex-direction:horizontal;
+ -ms-flex-direction:row;
+ -webkit-flex-direction:row;
+ flex-direction:row;
+ }
+}

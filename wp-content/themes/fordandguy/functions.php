@@ -49,15 +49,15 @@ function custom_product_description($atts){
 add_shortcode( 'custom_product_description', 'custom_product_description' );
 
 function my_theme_name_scripts() {
-  wp_enqueue_style( 'mystyle', get_stylesheet_directory_uri() . '/css/style.css' );
-  wp_enqueue_style( 'product', get_stylesheet_directory_uri() . '/css/product-page.css' );
-  wp_enqueue_style( 'type', get_stylesheet_directory_uri() . '/css/type.css' );
-  wp_enqueue_style( 'site-header', get_stylesheet_directory_uri() . '/css/site-header.css' );
+  // wp_enqueue_style( 'mystyle', get_stylesheet_directory_uri() . '/css/style.css' );
+  // wp_enqueue_style( 'product', get_stylesheet_directory_uri() . '/css/product-page.css' );
+  // wp_enqueue_style( 'type', get_stylesheet_directory_uri() . '/css/type.css' );
+  // wp_enqueue_style( 'site-header', get_stylesheet_directory_uri() . '/css/site-header.css' );
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css' );
   wp_enqueue_script( 'my-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true );
 
 	// Remove storefront styles
 	wp_dequeue_style( 'storefront-style' );
-	wp_enqueue_style( 'fordandguy-sf-style', get_stylesheet_directory_uri() . '/css/storefront/style.css' );
 
 	// Swap navigation script
 	wp_dequeue_script( 'storefront-navigation'  );
