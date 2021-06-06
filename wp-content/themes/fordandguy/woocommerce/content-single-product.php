@@ -60,10 +60,8 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
-	</div>
 
-
-		<div class="col-full">
+		<!-- <div class="col-full"> -->
 
 			<section class="accordion-cntr">
 				<a class="accordion"><h3>Product Details</h3></a>
@@ -110,6 +108,7 @@ if ( post_password_required() ) {
 
 		</div>
 
+	<!-- </div> -->
 
 
 	<!-- Reviews -->

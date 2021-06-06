@@ -1,0 +1,80 @@
+.blog {
+
+  .blog-header {
+    h1 {
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 5vw;
+    }
+  }
+
+  #content > .col-full {
+    padding: 20px;
+  }
+
+  #primary {
+    width: 100%;
+    @include break(s){
+      width: 70%;
+    }
+    #main {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      @include break(s){
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    article.post {
+      width: 100%;
+      max-width: none;
+      padding: 15px;
+      margin: 0;
+      @include break(s){
+        width: 50%;
+      }
+      @include break(l){
+        width: 33.33%;
+      }
+      .entry-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+        padding: 0 20px;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: $secondary-color;
+        & > a {
+          display: block;
+          width: calc(100% + 40px);
+          margin: 0 -20px 0;
+        }
+        // @include break(s){
+        //   flex-direction: row;
+        //   padding: 20px;
+        //   & > a {
+        //     width: 100%;
+        //     margin: 0;
+        //   }
+        // }
+
+      }
+    }
+    .hentry .wp-post-image {
+      margin-bottom: 20px;
+    }
+  }
+
+  #secondary {
+    background-color: $light-grey;
+    width: 100%;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    @include break(s) {
+      width: calc(30% - 30px);
+    }
+  }
+}

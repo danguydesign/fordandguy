@@ -16,8 +16,6 @@
 	 * @hooked storefront_page_content         - 20
 	 */
 
-	 //remove_action('storefront_page', 'storefront_page_header', 10);
-
 	do_action( 'storefront_page' );
 	?>
 </article><!-- #post-## -->

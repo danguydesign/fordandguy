@@ -6,57 +6,63 @@
   width: 100%;
 }
 
-.single-product div.product .images,
-.single-product div.product .summary,
-.single-product div.product .woocommerce-product-gallery {
-    margin-bottom: 24px;
-}
-
-.storefront-breadcrumb {
-  padding: 15px 20px;
-  margin: 0;
-}
-
-.single-product div.product .summary {
-  padding: 0 30px;
-}
-
 .product_title {
-  /* font-size: 2rem; */
   font-weight: 400;
   margin-bottom: 15px;
 }
 
-.single-product div.product p.price {
-  margin: 15px 0;
+.single-product div.product {
+  .images,
+  .summary,
+  .woocommerce-product-gallery {
+      margin-bottom: 24px;
+  }
+
+  .summary {
+    padding: 0 30px;
+  }
+
+  p.price {
+    margin: 15px 0;
+    .amount {
+      font-weight: 700;
+    }
+  }
+
+  .woocommerce-product-gallery {
+    .flex-viewport {
+      margin-bottom: 4px;
+    }
+    .flex-control-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 0 2px;
+      width: 100%;
+      &::before,
+      &::after {
+        content: '';
+        display: none;
+      }
+    }
+
+  }
+
+
 }
 
-.single-product div.product p.price .amount {
-  font-weight: 700;
-}
+
+
+
+
+
 
 .woocommerce-product-details__short-description p {
   margin-bottom: 20px !important;
 }
 
-.single-product div.product .woocommerce-product-gallery .flex-viewport {
-  margin-bottom: 4px;
-}
 
-.single-product div.product .woocommerce-product-gallery .flex-control-thumbs::before,
-.single-product div.product .woocommerce-product-gallery .flex-control-thumbs::after {
-  content: '';
-  display: none;
-  /* width: 0; */
-}
 
-.single-product div.product .woocommerce-product-gallery .flex-control-thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 0 2px;
-  width: 100%;
-}
 
 .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
   width: 16.66%;
@@ -79,12 +85,13 @@
 
 .woocommerce-tabs {
     padding: 20px;
+    ul.tabs li a {
+      color: #222;
+      padding: 25px 0;
+    }
 }
 
-.woocommerce-tabs ul.tabs li a {
-  color: #222;
-  padding: 25px 0;
-}
+
 
 .quantity .qty {
     width: 4.235801032em;
@@ -320,14 +327,14 @@ section.related ul.products::after {
     margin-right: 4.347826087%;
   }
 
-  .single-product div.product .woocommerce-product-gallery {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 50%;
-    padding: 0;
-    margin-right: 0;
-    margin-bottom: 40px;
-  }
+  // .single-product div.product .woocommerce-product-gallery {
+  //   display: flex;
+  //   flex-direction: row-reverse;
+  //   width: 50%;
+  //   padding: 0;
+  //   margin-right: 0;
+  //   margin-bottom: 40px;
+  // }
 
   .single-product div.product .summary {
     width: 50%;
@@ -493,4 +500,92 @@ p.stars.selected a.active:before {
     padding: 96px 40px 20px 20px;
   }
 
+}
+
+
+.storefront-breadcrumb {
+  padding: 15px 20px;
+  margin: 0;
+  @include break(s){
+    padding: 20px 35px;
+  }
+
+  .woocommerce-breadcrumb {
+
+    a {
+      color: $grey;
+      &:first-of-type::before {
+        display: none;
+      }
+    }
+
+    .breadcrumb-separator {
+      color: $grey;
+      &::after {
+        color: inherit;
+        font-family: $sans-serif;
+        font-weight: $normal;
+        line-height: inherit;
+        vertical-align: baseline;
+        content: "/";
+        opacity: 1;
+      }
+    }
+  }
+
+
+}
+
+.single-product div.product {
+
+  .woocommerce-product-gallery {
+    width: 100%;
+    @include break(s){
+      width: 50%;
+      margin-right: 0;
+    }
+    @include break(m){
+      width: 60%;
+    }
+
+    figure.woocommerce-product-gallery__wrapper {
+      display: flex;
+      overflow: scroll;
+      width: 100%;
+      // padding: 0 0 10px 10px;
+      @include break(s){
+        flex-direction: column;
+      }
+      @include break(m){
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+        padding-left: 15px;
+      }
+      .woocommerce-product-gallery__image {
+        min-width: 100vw;
+        @include break(s){
+          min-width: 0;
+          width: 100%;
+          padding: 0 0 20px 30px;
+        }
+        @include break(m){
+          width: 50%;
+          padding: 0 0 20px 20px;
+
+        }
+
+      }
+
+    }
+  }
+
+  .summary {
+    @include break(m){
+      width: 40%;
+    }
+    .accordion-cntr {
+      padding: 0;
+    }
+  }
 }
