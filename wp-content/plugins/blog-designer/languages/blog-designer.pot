@@ -1,0 +1,2159 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Blog Designer\n"
+"POT-Creation-Date: 2021-04-19 11:41+0530\n"
+"PO-Revision-Date: 2016-08-26 11:19+0530\n"
+"Last-Translator: \n"
+"Language-Team: Solwin Infotech <info@solwininfotech.com>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n;_x;_ex;_nx;esc_attr_e;"
+"_n_noop:1,2;esc_attr__;esc_attr_x;esc_html__;esc_html_e;esc_html_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/blog_designer_block/block.js:6
+#: admin/class-blog-designer-lite-admin.php:59
+#: admin/class-blog-designer-lite-admin.php:61
+#: admin/class-blog-designer-lite-admin.php:621
+#: admin/class-blog-designer-lite-admin.php:640 blog-designer.php:44
+msgid "Blog Designer"
+msgstr ""
+
+#: includes/blog_designer_block/block.js:6
+msgid "Display Blog Designer Posts"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:63
+msgid "Blog designer Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:63
+#: admin/class-blog-designer-lite-settings.php:70
+msgid "Blog Designer Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:64 includes/getting-started.php:21
+#: includes/getting-started.php:84
+msgid "Getting Started"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:167
+msgid ""
+"If you have a moment, please let us know why you are deactivating. We would "
+"like to help you in fixing the issue."
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:173
+msgid "I am going to upgrade to PRO version"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:178
+msgid "The plugin suddenly stopped working"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:183
+msgid "The plugin was not working"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:191
+msgid "I have configured plugin but not working with my blog page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:196
+msgid "Installed & configured well but disturbed my blog page design"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:201
+msgid "My theme's blog page is better than plugin's blog page design"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:206
+msgid "The plugin broke my site completely"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:211
+msgid "No any reason"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:216
+msgid "Other"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:222
+#: admin/class-blog-designer-lite-settings.php:2254
+msgid ""
+"By clicking this button, you agree with the storage and handling of your "
+"data as mentioned above by this website. (GDPR Compliance)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:226
+msgid "Submit"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:228
+#: admin/class-blog-designer-lite-admin.php:236
+msgid "Deactivate"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:231
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:232
+msgid "Deactivate Blog Designer"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:234
+#: admin/class-blog-designer-lite-settings.php:2259
+msgid "Skip"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:241
+msgid "Would you like to give us a chance to help you?"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:243
+msgid "Create a support ticket"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:403
+msgid "Oops, nothing found!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:404
+msgid "Do you want to reset data?"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:405
+msgid "Choose the blog template you love"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:406
+msgid "Close"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:407
+msgid "Set Blog Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:408
+msgid "Apply default style of this selected template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:409
+#: admin/class-blog-designer-lite-settings.php:300
+msgid "No template exist for selection"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:479
+#: admin/class-blog-designer-lite-settings.php:78
+msgid "View Blog"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:527
+#: admin/class-blog-designer-lite-admin.php:559
+#: admin/class-blog-designer-lite-settings.php:2161
+msgid "Select Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:528
+#: admin/class-blog-designer-lite-admin.php:538
+#: admin/class-blog-designer-lite-admin.php:560
+#: admin/class-blog-designer-lite-admin.php:570
+#: admin/class-blog-designer-lite-settings.php:2162
+#: admin/class-blog-designer-lite-settings.php:2172
+msgid "Live Demo"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:591
+msgid "Test Blog Page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:620
+msgid "If you like "
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:622
+msgid "please leave us a"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:624
+msgid "rating. A huge thank you from Solwin Infotech in advance!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:642
+msgid "To make your blog design more pretty, attractive and colorful."
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:666
+msgid ""
+"Thank you for updating Blog Designer Plugin to latest version. We have added "
+"security patches to our plugin. If you found any malicious code other than "
+"CSS code in 'Custom CSS' field of"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:666
+msgid "blog designer settings page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:666
+msgid "then please remove that code from that field."
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:915
+msgid "View Blog Designer Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:915
+msgid "Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:918
+msgid "Documentation"
+msgstr ""
+
+#: admin/class-blog-designer-lite-admin.php:919
+msgid "Upgrade"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:72
+msgid "Read Online Documentation"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:73
+msgid "See Live Demo"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:74
+msgid "Get access to "
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:74
+msgid "50 new layouts"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:74
+#: admin/class-blog-designer-lite-settings.php:2062
+msgid "and"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:74
+msgid "150+ new premium"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:74
+msgid " features."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:75
+msgid "Upgrade to PRO now"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:80
+msgid "Blog Designer setting restored successfully."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:82
+msgid "Blog Designer settings updated."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:108
+msgid "Blog designer settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:112
+#: admin/class-blog-designer-lite-settings.php:113
+#: admin/class-blog-designer-lite-settings.php:2005
+#: includes/getting-started.php:53
+msgid "Save Changes"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:115
+msgid "Show Preview"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:116
+msgid "Preview"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:181
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:185
+msgid "Standard Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:189
+msgid "Post Title Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:193
+msgid "Post Content Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:197
+msgid "Slider Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:201
+msgid "Media Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:205
+msgid "Social Share Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:214
+msgid "Ads Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:224
+msgid "Select Blog Layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:226
+msgid "Select your favorite layout from 10 free layouts."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:237
+msgid "Current Template:"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:242
+#: admin/class-blog-designer-lite-settings.php:279
+#: admin/class-blog-designer-lite-settings.php:286
+#: admin/class-blog-designer-lite-settings.php:294
+msgid "Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:247
+msgid "Select Other Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:256
+#: admin/class-blog-designer-lite-settings.php:257
+msgid "Reset Layout Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:310
+msgid "Caution:"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:312
+msgid ""
+"You are about to select the page for your layout. This will overwrite all "
+"the content on the page that you will select. Changes once lost can not be "
+"recovered. Please be cautious!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:317
+msgid " Select Page for Blog "
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:321
+msgid "Select page for display blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:329
+msgid "Select Page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:341
+msgid "Number of Posts to Display"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:345
+msgid " Select number of posts to display on blog page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:358
+msgid "Select Post Categories"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:362
+msgid " Select post categories to filter posts via categories"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:371
+msgid "Choose Post Categories"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:387
+msgid "Select Post Tags"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:391
+msgid " Select post tag to filter posts via tags"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:396
+msgid "Choose Post Tags"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:412
+msgid "Select Post Authors"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:416
+msgid " Select post authors to filter posts via authors"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:421
+msgid "Choose Post Authors"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:435
+msgid "Display Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:440
+msgid "Post Category"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:442
+msgid "Show post category on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:447
+#: admin/class-blog-designer-lite-settings.php:463
+#: admin/class-blog-designer-lite-settings.php:480
+#: admin/class-blog-designer-lite-settings.php:496
+#: admin/class-blog-designer-lite-settings.php:512
+#: admin/class-blog-designer-lite-settings.php:529
+#: admin/class-blog-designer-lite-settings.php:548
+#: admin/class-blog-designer-lite-settings.php:800
+#: admin/class-blog-designer-lite-settings.php:854
+#: admin/class-blog-designer-lite-settings.php:972
+#: admin/class-blog-designer-lite-settings.php:1091
+#: admin/class-blog-designer-lite-settings.php:1109
+#: admin/class-blog-designer-lite-settings.php:1274
+#: admin/class-blog-designer-lite-settings.php:1625
+#: admin/class-blog-designer-lite-settings.php:1669
+#: admin/class-blog-designer-lite-settings.php:1713
+#: admin/class-blog-designer-lite-settings.php:1890
+#: admin/class-blog-designer-lite-settings.php:1906
+#: admin/class-blog-designer-lite-settings.php:1922
+#: admin/class-blog-designer-lite-settings.php:1938
+msgid "Yes"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:449
+#: admin/class-blog-designer-lite-settings.php:465
+#: admin/class-blog-designer-lite-settings.php:482
+#: admin/class-blog-designer-lite-settings.php:498
+#: admin/class-blog-designer-lite-settings.php:514
+#: admin/class-blog-designer-lite-settings.php:531
+#: admin/class-blog-designer-lite-settings.php:550
+#: admin/class-blog-designer-lite-settings.php:802
+#: admin/class-blog-designer-lite-settings.php:856
+#: admin/class-blog-designer-lite-settings.php:974
+#: admin/class-blog-designer-lite-settings.php:1093
+#: admin/class-blog-designer-lite-settings.php:1111
+#: admin/class-blog-designer-lite-settings.php:1276
+#: admin/class-blog-designer-lite-settings.php:1627
+#: admin/class-blog-designer-lite-settings.php:1671
+#: admin/class-blog-designer-lite-settings.php:1715
+#: admin/class-blog-designer-lite-settings.php:1892
+#: admin/class-blog-designer-lite-settings.php:1908
+#: admin/class-blog-designer-lite-settings.php:1924
+#: admin/class-blog-designer-lite-settings.php:1940
+msgid "No"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:456
+msgid "Post Tag"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:458
+msgid "Show post tag on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:473
+msgid "Post Author "
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:475
+msgid "Show post author on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:489
+msgid "Post Published Date"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:491
+msgid "Show post published date on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:505
+msgid "Comment Count"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:507
+msgid "Show post comment count on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:521
+msgid "Post Like"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:522
+#: admin/class-blog-designer-lite-settings.php:848
+#: admin/class-blog-designer-lite-settings.php:876
+#: admin/class-blog-designer-lite-settings.php:904
+#: admin/class-blog-designer-lite-settings.php:933
+#: admin/class-blog-designer-lite-settings.php:948
+#: admin/class-blog-designer-lite-settings.php:966
+#: admin/class-blog-designer-lite-settings.php:983
+#: admin/class-blog-designer-lite-settings.php:997
+#: admin/class-blog-designer-lite-settings.php:1011
+#: admin/class-blog-designer-lite-settings.php:1071
+#: admin/class-blog-designer-lite-settings.php:1103
+#: admin/class-blog-designer-lite-settings.php:1189
+#: admin/class-blog-designer-lite-settings.php:1206
+#: admin/class-blog-designer-lite-settings.php:1235
+#: admin/class-blog-designer-lite-settings.php:1250
+#: admin/class-blog-designer-lite-settings.php:1268
+#: admin/class-blog-designer-lite-settings.php:1285
+#: admin/class-blog-designer-lite-settings.php:1299
+#: admin/class-blog-designer-lite-settings.php:1313
+#: admin/class-blog-designer-lite-settings.php:1588
+#: admin/class-blog-designer-lite-settings.php:1618
+#: admin/class-blog-designer-lite-settings.php:1637
+#: admin/class-blog-designer-lite-settings.php:1681
+#: admin/class-blog-designer-lite-settings.php:1754
+#: admin/class-blog-designer-lite-settings.php:1771
+#: admin/class-blog-designer-lite-settings.php:1783
+#: admin/class-blog-designer-lite-settings.php:1817
+#: admin/class-blog-designer-lite-settings.php:1834
+msgid "PRO"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:524
+msgid "Show post like on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:538
+msgid "Display Sticky Post First"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:540
+msgid "Show Sticky Post first on blog layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:559
+msgid "Custom CSS"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:563
+msgid "Write a \"Custom CSS\" to add your additional design for blog page"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:566
+msgid "Example"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:578
+msgid "Main Container Class Name"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:582
+msgid "Enter main container class name."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:582
+msgid "Leave it blank if you do not want to use it"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:583
+msgid "main cover class name"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:590
+#: admin/class-blog-designer-lite-settings.php:632
+#: admin/class-blog-designer-lite-settings.php:674
+#: admin/class-blog-designer-lite-settings.php:716
+msgid "Blog Grid Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:591
+#: admin/class-blog-designer-lite-settings.php:1363
+msgid "Desktop - Above"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:595
+#: admin/class-blog-designer-lite-settings.php:637
+#: admin/class-blog-designer-lite-settings.php:679
+#: admin/class-blog-designer-lite-settings.php:721
+msgid "Select column for post"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:603
+#: admin/class-blog-designer-lite-settings.php:645
+#: admin/class-blog-designer-lite-settings.php:687
+#: admin/class-blog-designer-lite-settings.php:729
+#: admin/class-blog-designer-lite-settings.php:1375
+#: admin/class-blog-designer-lite-settings.php:1431
+#: admin/class-blog-designer-lite-settings.php:1487
+#: admin/class-blog-designer-lite-settings.php:1543
+msgid "1 Column"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:610
+#: admin/class-blog-designer-lite-settings.php:652
+#: admin/class-blog-designer-lite-settings.php:694
+#: admin/class-blog-designer-lite-settings.php:736
+#: admin/class-blog-designer-lite-settings.php:1382
+#: admin/class-blog-designer-lite-settings.php:1438
+#: admin/class-blog-designer-lite-settings.php:1494
+#: admin/class-blog-designer-lite-settings.php:1550
+msgid "2 Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:617
+#: admin/class-blog-designer-lite-settings.php:659
+#: admin/class-blog-designer-lite-settings.php:701
+#: admin/class-blog-designer-lite-settings.php:743
+#: admin/class-blog-designer-lite-settings.php:1389
+#: admin/class-blog-designer-lite-settings.php:1445
+#: admin/class-blog-designer-lite-settings.php:1501
+#: admin/class-blog-designer-lite-settings.php:1557
+msgid "3 Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:624
+#: admin/class-blog-designer-lite-settings.php:666
+#: admin/class-blog-designer-lite-settings.php:708
+#: admin/class-blog-designer-lite-settings.php:750
+#: admin/class-blog-designer-lite-settings.php:1396
+#: admin/class-blog-designer-lite-settings.php:1452
+#: admin/class-blog-designer-lite-settings.php:1508
+#: admin/class-blog-designer-lite-settings.php:1564
+msgid "4 Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:633
+#: admin/class-blog-designer-lite-settings.php:1419
+msgid "iPad"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:675
+#: admin/class-blog-designer-lite-settings.php:1475
+msgid "Tablet"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:717
+#: admin/class-blog-designer-lite-settings.php:1531
+msgid "Mobile - Smaller Than"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:758
+msgid "Blog Posts Template Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:762
+msgid "Select post template color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:770
+msgid "Blog Posts hover Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:774
+#: admin/class-blog-designer-lite-settings.php:785
+msgid "Select post background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:781
+msgid "Background Color for Blog Posts"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:792
+msgid "Alternative Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:796
+msgid "Display alternative background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:809
+msgid "Choose Alternative Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:813
+msgid "Select alternative background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:820
+msgid "Choose Link Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:824
+msgid "Select link color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:831
+msgid "Choose Link Hover Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:835
+msgid "Select link hover color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:846
+msgid "Post Title Link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:851
+msgid "Select post title link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:863
+msgid "Post Title Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:867
+msgid "Select post title color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:874
+msgid "Post Title Link Hover Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:879
+msgid "Select post title link hover color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:886
+msgid "Post Title Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:890
+msgid "Select post title background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:895
+#: admin/class-blog-designer-lite-settings.php:1199
+msgid "Typography Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:902
+#: admin/class-blog-designer-lite-settings.php:1204
+msgid "Font Family"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:905
+msgid "Select post title font family"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:916
+#: admin/class-blog-designer-lite-settings.php:1218
+msgid "Font Size (px)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:918
+msgid "Select post title font size"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:931
+#: admin/class-blog-designer-lite-settings.php:1233
+msgid "Font Weight"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:934
+#: admin/class-blog-designer-lite-settings.php:1236
+msgid "Select font weight"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:946
+#: admin/class-blog-designer-lite-settings.php:1248
+msgid "Line Height (px)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:949
+#: admin/class-blog-designer-lite-settings.php:1251
+msgid "Enter line height"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:964
+#: admin/class-blog-designer-lite-settings.php:1266
+msgid "Italic Font Style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:967
+#: admin/class-blog-designer-lite-settings.php:1269
+msgid "Display italic font style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:981
+#: admin/class-blog-designer-lite-settings.php:1283
+msgid "Text Transform"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:984
+#: admin/class-blog-designer-lite-settings.php:1286
+msgid "Select text transform style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:995
+#: admin/class-blog-designer-lite-settings.php:1297
+msgid "Text Decoration"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:998
+#: admin/class-blog-designer-lite-settings.php:1300
+msgid "Select text decoration style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1009
+#: admin/class-blog-designer-lite-settings.php:1311
+msgid "Letter Spacing (px)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1012
+#: admin/class-blog-designer-lite-settings.php:1314
+msgid "Enter letter spacing"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1033
+msgid "For each Article in a Feed, Show "
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1037
+msgid ""
+"To display full text for each post, select full text option, otherwise "
+"select the summary option."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1043
+msgid "Full Text"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1045
+msgid "Summary"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1052
+msgid "Post Content Length (words)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1056
+msgid "Enter number of words for post content length"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1069
+msgid "Show Content From"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1074
+msgid "To display text from post content or from post excerpt"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1084
+msgid "Display HTML tags with Summary"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1088
+msgid "Show HTML tags with summary"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1101
+msgid "First letter as Dropcap"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1106
+msgid "Enable first letter as Dropcap"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1118
+msgid "Post Content Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1122
+msgid "Select post content color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1127
+msgid "Read More Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1131
+msgid "Display Read More On"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1135
+msgid "Select option for display read more button where to display"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1142
+msgid "Same Line"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1144
+msgid "Next Line"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1146
+#: admin/class-blog-designer-lite-settings.php:1762
+#: admin/class-blog-designer-lite-settings.php:1808
+#: admin/class-blog-designer-lite-settings.php:1967
+#: admin/class-blog-designer-lite-settings.php:1980
+msgid "Disable"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1154
+msgid "Read More Text"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1156
+msgid "Enter text for read more button"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1165
+msgid "Text Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1167
+msgid "Select read more text color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1176
+msgid "Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1178
+msgid "Select read more text background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1187
+msgid "Hover Background Color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1190
+msgid "Select Read more text hover background color"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1207
+msgid "Select post content font family"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1220
+msgid "Select font size for post content"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1335
+msgid "Slider Effect"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1339
+msgid "Select effect for slider layout"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1347
+msgid "Slide"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1354
+msgid "Fade"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1362
+#: admin/class-blog-designer-lite-settings.php:1418
+#: admin/class-blog-designer-lite-settings.php:1474
+#: admin/class-blog-designer-lite-settings.php:1530
+msgid "Slider Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1367
+#: admin/class-blog-designer-lite-settings.php:1423
+#: admin/class-blog-designer-lite-settings.php:1479
+#: admin/class-blog-designer-lite-settings.php:1535
+msgid "Select column for slider"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1403
+#: admin/class-blog-designer-lite-settings.php:1459
+#: admin/class-blog-designer-lite-settings.php:1515
+#: admin/class-blog-designer-lite-settings.php:1571
+msgid "5 Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1410
+#: admin/class-blog-designer-lite-settings.php:1466
+#: admin/class-blog-designer-lite-settings.php:1522
+#: admin/class-blog-designer-lite-settings.php:1578
+msgid "6 Columns"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1586
+msgid "Slide to Scroll"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1591
+msgid "Select number of slide to scroll"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1616
+msgid "Display Slider Navigation"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1621
+msgid "Show slider navigation"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1635
+msgid "Slider Navigation Icon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1640
+msgid "Select Slider navigation icon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1644
+msgid "Select Navigation"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1661
+msgid "Display Slider Controls"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1665
+msgid "Show slider control"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1679
+msgid "Select Slider Arrow"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1684
+msgid "Select slider arrow icon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1688
+msgid "Select Arrow"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1705
+msgid "Slider Autoplay"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1709
+msgid "Show slider autoplay"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1723
+msgid "Enter slider autoplay intervals (ms)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1727
+msgid "Enter slider autoplay intervals"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1729
+#: admin/class-blog-designer-lite-settings.php:1742
+msgid "Enter slider intervals"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1736
+msgid "Slider Speed (ms)"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1740
+msgid "Enter slider speed"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1752
+msgid "Post Image Link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1757
+msgid "Enable/Disable post image link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1760
+#: admin/class-blog-designer-lite-settings.php:1806
+#: admin/class-blog-designer-lite-settings.php:1979
+msgid "Enable"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1769
+msgid "Select Post Default Image"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1774
+msgid "Select post default image"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1775
+msgid "Upload Image"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1781
+msgid "Select Post Media Size"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1786
+msgid "Select size of post media"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1799
+msgid "Social Share"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1803
+msgid "Enable/Disable social share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1815
+msgid "Social Share Style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1820
+msgid "Select social share style"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1823
+msgid "Custom"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1825
+msgid "Default"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1832
+msgid "Available Icon Themes"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1837
+msgid "Select icon theme from available icon theme"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1864
+msgid "Shape of Social Icon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1868
+msgid "Select shape of social icon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1871
+msgid "Circle"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1873
+msgid "Square"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1878
+msgid "Social Share Links Settings"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1883
+msgid "Facebook Share Link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1885
+msgid "Display facebook share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1899
+msgid "Linkedin Share Link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1901
+msgid "Display linkedin share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1915
+msgid "Pinterest Share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1917
+msgid "Display Pinterest share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1931
+msgid "Twitter Share Link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1933
+msgid "Display twitter share link"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1958
+msgid "Ads"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1960
+msgid "Enable/Disable repeated ads"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1965
+msgid "Repeated"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1966
+msgid "Normal"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1974
+msgid "Random Ads"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1976
+msgid "Show random ads after x number of posts"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1988
+msgid "Show Ad after"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:1990
+msgid "Show Ad after number of post"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2012
+msgid "Help to improve this plugin!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2014
+msgid "Enjoyed this plugin?"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2015
+msgid "You can help by"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2017
+msgid "rate this plugin 5 stars!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2021
+msgid "Downloads:"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2032
+#: includes/getting-started.php:26 includes/getting-started.php:133
+msgid "Blog Designer PRO"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2037
+msgid "50 Beautiful Blog Templates"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2038
+msgid "5+ Unique Timeline Templates"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2039
+msgid "10 Unique Grid Templates"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2040
+msgid "3 Unique Slider Templates"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2041
+msgid "200+ Blog Layout Variations"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2042
+msgid "Multiple Single Post Layout options"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2043
+msgid "Category, Tag, Author & Date Layouts"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2044
+msgid "Post Type & Taxonomy Filter"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2045
+msgid "800+ Google Font Support"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2046
+msgid "600+ Font Awesome Icons Support"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2048
+msgid "Now only at"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2052
+msgid "Buy Now on Codecanyon"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2058
+msgid "Need Support?"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2060
+msgid "Check out the"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2061
+msgid "FAQs"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2063
+msgid "Support Forums"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2068
+msgid "Share & Follow Us"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2118
+msgid "All"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2121
+msgid "Free"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2124
+msgid "Full Width"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2127
+msgid "Grid"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2130
+msgid "Masonry"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2133
+msgid "Magazine"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2136
+msgid "Timeline"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2139
+msgid "Slider"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2142
+msgid "Search Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2182
+msgid "No template found. Please try again"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2210
+msgid "Hi there!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2211
+msgid ""
+"Don't ever miss an opportunity to opt in for Email Notifications / "
+"Announcements about exciting New Features and Update Releases."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2212
+msgid ""
+"Contribute in helping us making our plugin compatible with most plugins and "
+"themes by allowing to share non-sensitive information about your website."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2213
+msgid "Email Address for Notifications"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2215
+msgid "If you're not ready to Opt-In, that's ok too!"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2216
+msgid "Blog Designer will still work fine."
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2217
+msgid "What permissions are being granted?"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2223
+msgid "User Details"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2224
+msgid "Name and Email Address"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2230
+msgid "Current Plugin Status"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2231
+msgid "Activation, Deactivation and Uninstall"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2239
+msgid "Notifications"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2240
+msgid "Updates & Announcements"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2246
+msgid "Website Overview"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2247
+msgid "Site URL, WP Version, PHP Info, Plugins & Themes Info"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2261
+#: admin/class-blog-designer-lite-settings.php:2268
+msgid "Continue"
+msgstr ""
+
+#: admin/class-blog-designer-lite-settings.php:2266
+msgid "Opt-In"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:67
+msgid "Boxy Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:73
+msgid "Boxy Clean Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:79
+msgid "Brit Co Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:85
+msgid "Classical Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:91
+msgid "Cool Horizontal Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:97
+#: admin/class-blog-designer-lite-template.php:319
+msgid "Crayon Slider Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:103
+msgid "Cover Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:109
+msgid "Clicky Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:115
+msgid "Deport Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:121
+msgid "Easy Timeline"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:127
+msgid "Elina Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:133
+msgid "Evolution Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:139
+msgid "Fairy Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:145
+msgid "Famous Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:151
+msgid "Food Box Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:157
+msgid "Glamour Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:163
+msgid "Glossary Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:169
+msgid "Explore Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:175
+msgid "Hoverbic Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:181
+msgid "Hub Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:187
+msgid "Minimal Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:193
+msgid "Masonry Timeline"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:199
+msgid "Invert Grid Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:205
+msgid "Lightbreeze Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:211
+msgid "Media Grid Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:217
+msgid "My Diary Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:223
+msgid "Navia Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:229
+msgid "News Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:235
+msgid "Neaty Block Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:241
+msgid "Offer Blog Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:247
+msgid "Overlay Horizontal Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:253
+msgid "Nicy Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:259
+msgid "Region Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:265
+msgid "Roctangle Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:271
+msgid "Schedule Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:277
+msgid "Sharpen Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:283
+msgid "Spektrum Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:289
+msgid "Soft Block Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:295
+msgid "Story Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:301
+msgid "Timeline Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:307
+msgid "Winter Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:313
+msgid "Wise Block Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:325
+msgid "Sallet Slider Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:331
+msgid "Sunshiny Slider Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:337
+msgid "Pretty Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:343
+msgid "Tagly Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:349
+msgid "Brite Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:355
+msgid "Chapter Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:361
+msgid "Steps Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:367
+msgid "Miracle Template"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:468
+#: admin/class-blog-designer-lite-template.php:475
+#: admin/class-blog-designer-lite-template.php:892
+#: admin/class-blog-designer-lite-template.php:1066
+#: admin/class-blog-designer-lite-template.php:1159
+msgid "Posted by "
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:470
+#: admin/class-blog-designer-lite-template.php:1575
+msgid "on"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:480
+msgid "Posted on "
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:504
+#: admin/class-blog-designer-lite-template.php:1489
+#: admin/class-blog-designer-lite-template.php:1616
+msgid "Category"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:524
+#: admin/class-blog-designer-lite-template.php:1203
+#: admin/class-blog-designer-lite-template.php:1349
+msgid "Tags"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:544
+#: admin/class-blog-designer-lite-template.php:671
+#: admin/class-blog-designer-lite-template.php:793
+#: admin/class-blog-designer-lite-template.php:932
+#: admin/class-blog-designer-lite-template.php:1187
+#: admin/class-blog-designer-lite-template.php:1469
+#: admin/class-blog-designer-lite-template.php:1651
+msgid "Continue Reading..."
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:575
+#: admin/class-blog-designer-lite-template.php:977
+#: admin/class-blog-designer-lite-template.php:1020
+#: admin/class-blog-designer-lite-template.php:1034
+#: admin/class-blog-designer-lite-template.php:1240
+#: admin/class-blog-designer-lite-template.php:1298
+#: admin/class-blog-designer-lite-template.php:1665
+#: admin/class-blog-designer-lite-template.php:1750
+#: admin/class-blog-designer-lite-template.php:1813
+msgid "Read More"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:648
+#: admin/class-blog-designer-lite-template.php:1588
+#: admin/class-blog-designer-lite-template.php:1737
+msgid "Leave a Comment"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:648
+#: admin/class-blog-designer-lite-template.php:1588
+msgid "1 comment"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:648
+#: admin/class-blog-designer-lite-template.php:1588
+msgid "comments"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:648
+#: admin/class-blog-designer-lite-template.php:1588
+#: admin/class-blog-designer-lite-template.php:1737
+msgid "Comments are off"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:920
+#: admin/class-blog-designer-lite-template.php:1085
+#: admin/class-blog-designer-lite-template.php:1279
+msgid "No Comments"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:920
+#: admin/class-blog-designer-lite-template.php:1085
+#: admin/class-blog-designer-lite-template.php:1279
+#: admin/class-blog-designer-lite-template.php:1737
+msgid "1 Comment"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:920
+#: admin/class-blog-designer-lite-template.php:1085
+#: admin/class-blog-designer-lite-template.php:1279
+#: admin/class-blog-designer-lite-template.php:1737
+msgid "Comments"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:1054
+#: admin/class-blog-designer-lite-template.php:1330
+msgid "Categories"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:1312
+msgid "Read more"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:1426
+msgid "By "
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:1504
+#: admin/class-blog-designer-lite-template.php:1631
+msgid "Tag"
+msgstr ""
+
+#: admin/class-blog-designer-lite-template.php:1568
+msgid "Posted by"
+msgstr ""
+
+#: blog-designer.php:48
+msgid "Content"
+msgstr ""
+
+#: blog-designer.php:50
+msgid "Custom Blog Layout"
+msgstr ""
+
+#: includes/getting-started.php:22
+msgid ""
+"You will find everything you need to get started here with Blog Designer "
+"plugin."
+msgstr ""
+
+#: includes/getting-started.php:27
+msgid "Version"
+msgstr ""
+
+#: includes/getting-started.php:34
+msgid "Read This First"
+msgstr ""
+
+#: includes/getting-started.php:37
+msgid "Uninstall Data Settings"
+msgstr ""
+
+#: includes/getting-started.php:50
+msgid "Delete plugin's settings data on deletion of plugin"
+msgstr ""
+
+#: includes/getting-started.php:60
+msgid "Success, The Blog Designer is now activated!"
+msgstr ""
+
+#: includes/getting-started.php:73
+msgid ""
+"Would you like to create one test blog page to check usage of Blog Designer "
+"plugin?"
+msgstr ""
+
+#: includes/getting-started.php:74
+msgid "Yes, Please do it"
+msgstr ""
+
+#: includes/getting-started.php:74
+msgid "No, I will configure my self (Give me steps)"
+msgstr ""
+
+#: includes/getting-started.php:78
+msgid "We have created a"
+msgstr ""
+
+#: includes/getting-started.php:78 includes/getting-started.php:96
+msgid "Blog Page"
+msgstr ""
+
+#: includes/getting-started.php:78
+msgid "with"
+msgstr ""
+
+#: includes/getting-started.php:78
+msgid "blog template."
+msgstr ""
+
+#: includes/getting-started.php:79
+msgid "Visit blog page"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "To customize the Blog Page design after complete installation,"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "Go to Blog Designer Settings"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "In case of an any doubt,"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "Read Documentation"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "or write to us via"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "support portal"
+msgstr ""
+
+#: includes/getting-started.php:81
+msgid "support forum"
+msgstr ""
+
+#: includes/getting-started.php:84
+msgid "Must Read"
+msgstr ""
+
+#: includes/getting-started.php:86
+msgid ""
+"Once you’ve activated your plugin, you’ll be redirected to this Getting "
+"Started page (Blog Designer > Getting Started). Here, you can view the "
+"required and helpful steps to use plugin."
+msgstr ""
+
+#: includes/getting-started.php:87
+msgid "We recommed that please read the below sections for more details."
+msgstr ""
+
+#: includes/getting-started.php:90
+msgid "Important things"
+msgstr ""
+
+#: includes/getting-started.php:90
+msgid "Required"
+msgstr ""
+
+#: includes/getting-started.php:91 includes/getting-started.php:101
+#: includes/getting-started.php:111 includes/getting-started.php:126
+msgid "Back to Top"
+msgstr ""
+
+#: includes/getting-started.php:93
+msgid ""
+"To use Blog Designer, follow the below steps for initial setup - Correct the "
+"Reading Settings."
+msgstr ""
+
+#: includes/getting-started.php:95
+msgid "To check the reading settings, click"
+msgstr ""
+
+#: includes/getting-started.php:95
+msgid "Settings > Reading"
+msgstr ""
+
+#: includes/getting-started.php:95
+msgid "in the WordPress admin menu."
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid "If your "
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid "Posts page"
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid " selection selected with the same exact"
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid ""
+"selection that same page you seleced under Blog Designer settings then "
+"change that selection to default one ("
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid "\" — Select — \""
+msgstr ""
+
+#: includes/getting-started.php:96
+msgid ") from the dropdown."
+msgstr ""
+
+#: includes/getting-started.php:100
+msgid "How to use Blog Designer Shortcode?"
+msgstr ""
+
+#: includes/getting-started.php:100 includes/getting-started.php:110
+msgid "Optional"
+msgstr ""
+
+#: includes/getting-started.php:103
+msgid ""
+"Blog Designer is flexible to be used with any page builders like Visual "
+"Composer, Elementor, Beaver Builder, SiteOrigin, Tailor, etc."
+msgstr ""
+
+#: includes/getting-started.php:105
+msgid "Use shortcode"
+msgstr ""
+
+#: includes/getting-started.php:105
+msgid "[wp_blog_designer]"
+msgstr ""
+
+#: includes/getting-started.php:105
+msgid "in any WordPress post or page."
+msgstr ""
+
+#: includes/getting-started.php:106
+msgid "Use"
+msgstr ""
+
+#: includes/getting-started.php:106
+msgid "into a template file within your theme files."
+msgstr ""
+
+#: includes/getting-started.php:110
+msgid "Import Dummy Posts"
+msgstr ""
+
+#: includes/getting-started.php:113
+msgid ""
+"We have craeted a dummy set of posts for you to get started with Blog "
+"Designer."
+msgstr ""
+
+#: includes/getting-started.php:114
+msgid "To import the dummy posts, follow the below process:"
+msgstr ""
+
+#: includes/getting-started.php:116
+msgid "Go to"
+msgstr ""
+
+#: includes/getting-started.php:116
+msgid "Tools > Import"
+msgstr ""
+
+#: includes/getting-started.php:116
+msgid "in WordPress Admin panel."
+msgstr ""
+
+#: includes/getting-started.php:117
+msgid "Run "
+msgstr ""
+
+#: includes/getting-started.php:117
+msgid "WordPress Importer "
+msgstr ""
+
+#: includes/getting-started.php:117
+msgid " at the end of the presentated list."
+msgstr ""
+
+#: includes/getting-started.php:118
+msgid "You will be redirected on "
+msgstr ""
+
+#: includes/getting-started.php:118
+msgid "Import WordPress "
+msgstr ""
+
+#: includes/getting-started.php:118
+msgid " where we need to select actual sample posts XML file."
+msgstr ""
+
+#: includes/getting-started.php:119
+msgid "Select"
+msgstr ""
+
+#: includes/getting-started.php:119
+msgid "from"
+msgstr ""
+
+#: includes/getting-started.php:119
+msgid "blog-designer > includes > dummy-data"
+msgstr ""
+
+#: includes/getting-started.php:119
+msgid "folder."
+msgstr ""
+
+#: includes/getting-started.php:120
+msgid "Click on"
+msgstr ""
+
+#: includes/getting-started.php:120
+msgid "Upload file and import"
+msgstr ""
+
+#: includes/getting-started.php:120
+msgid "and with next step please select"
+msgstr ""
+
+#: includes/getting-started.php:120
+msgid "Download and import file attachments"
+msgstr ""
+
+#: includes/getting-started.php:120
+msgid "checkbox. Enjoy your cuppa joe with WordPress imports."
+msgstr ""
+
+#: includes/getting-started.php:121
+msgid "All done! Your website is ready with sample blog posts."
+msgstr ""
+
+#: includes/getting-started.php:125
+msgid "Blog Designer Plugin Support"
+msgstr ""
+
+#: includes/getting-started.php:128
+msgid ""
+"Blog Designer comes with this handy help file to help you get started with "
+"setting up the plugin and showcasing blog page in beautiful ways."
+msgstr ""
+
+#: includes/getting-started.php:129
+msgid " Please consider purchasing a"
+msgstr ""
+
+#: includes/getting-started.php:129
+msgid " PRO version"
+msgstr ""
+
+#: includes/getting-started.php:129
+msgid ""
+"which grants you access to more blog templates instead of limited templates, "
+"useful features like to design category/tag/author pages as well as single "
+"post pages, hassle-free regular updates, and a premium support for 6 months "
+"or one year based on your purchase!"
+msgstr ""
+
+#: includes/getting-started.php:135
+msgid "Get an entire collection of beautiful blog templates for one low price."
+msgstr ""
+
+#: includes/getting-started.php:136
+msgid ""
+"Blog Designer PRO for WordPress grants you access to our collection of pixel-"
+"perfect blog templates, support of multiple blog pages — a complete value "
+"for price!"
+msgstr ""
+
+#: includes/getting-started.php:137
+msgid "Learn about the Blog Designer PRO"
+msgstr ""
+
+#: includes/getting-started.php:141
+msgid "Blog Designer Ads"
+msgstr ""
+
+#: includes/getting-started.php:143
+msgid ""
+"Blog Designer Ads is an add-on WordPress plugin for Blog Designer Pro and "
+"Blog Designer plugin"
+msgstr ""
+
+#: includes/getting-started.php:144
+msgid ""
+"Blog Designer Ads supports 3rd party ads such as Google AdSense, also "
+"supports custom ads with many customization features such as html ads, image "
+"ads, slider etc. There are customization settings such as font color, "
+"background, margin, padding, border etc to display your ads beautifully."
+msgstr ""
+
+#: includes/getting-started.php:145
+msgid "Learn about the Blog Designer Ads"
+msgstr ""
+
+#: includes/promo-notice.php:95 includes/promo_notice.php:154
+msgid ""
+"It's been a while you are using <strong>Blog Designer</strong>, tell us did "
+"you like it or not? Care to share some love."
+msgstr ""
+
+#: includes/promo-notice.php:97 includes/promo-notice.php:113
+#: includes/promo_notice.php:156 includes/promo_notice.php:172
+msgid "Rate it 5&#9733;'s"
+msgstr ""
+
+#: includes/promo-notice.php:98 includes/promo-notice.php:114
+#: includes/promo_notice.php:157 includes/promo_notice.php:173
+msgid "Like us on Facebook"
+msgstr ""
+
+#: includes/promo-notice.php:99 includes/promo-notice.php:115
+#: includes/promo_notice.php:158 includes/promo_notice.php:174
+msgid "Follow us on Twitter"
+msgstr ""
+
+#: includes/promo-notice.php:100 includes/promo-notice.php:116
+#: includes/promo_notice.php:159 includes/promo_notice.php:175
+msgid "Explore Documentation"
+msgstr ""
+
+#: includes/promo-notice.php:101 includes/promo_notice.php:160
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: includes/promo-notice.php:111 includes/promo_notice.php:170
+msgid "We are delighted that you are using <strong>Blog Designer</strong>."
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:114
+msgid "plz go to "
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:114
+msgid "Blog Designer Panel"
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:114
+msgid "select Blog Designs & save settings."
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:116
+msgid "You haven't created any blog designer shortcode."
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:452
+msgid "Previous"
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:453
+msgid "Next"
+msgstr ""
+
+#: public/class-blog-designer-lite-public.php:479
+msgid "words"
+msgstr ""

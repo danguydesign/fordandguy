@@ -9,7 +9,7 @@ Template: storefront
 
 // Base
 
-@import 'storefront/style';
+// @import 'storefront/style';
 @import 'variables';
 @import 'mixins';
 
@@ -17,5 +17,6 @@ Template: storefront
 
 @import 'type';
 @import 'style';
-@import 'product-page';
 @import 'nav';
+@import 'product-page';
+@import 'blog';

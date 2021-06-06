@@ -29,6 +29,31 @@ function removestuff() {
 	remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
 	// Disable REST API link in HTTP headers (remove if anything breaks)
 	remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+
+	// Remove post categories (and maybe product categories)
+	function wpse120418_unregister_categories() {
+    register_taxonomy( 'category', array() );
+	}
+	add_action( 'init', 'wpse120418_unregister_categories' );
+
+	// disable flexslider js
+	function flex_dequeue_script() {
+	    wp_dequeue_script( 'flexslider' );
+	}
+	add_action( 'wp_print_scripts', 'flex_dequeue_script', 100 );
+
+	// disable zoom jquery js file
+	function zoom_dequeue_script() {
+	    wp_dequeue_script( 'zoom' );
+	}
+	add_action( 'wp_print_scripts', 'zoom_dequeue_script', 100 );
+
+	// // disable photoswipe js file
+	// function photoswipe_dequeue_script() {
+	//     wp_dequeue_script( 'photoswipe-ui-default' );
+	// }
+	// add_action( 'wp_print_scripts', 'photoswipe_dequeue_script', 100 );
+
 }
 
 add_action( 'init', 'removestuff', 1);
@@ -49,10 +74,6 @@ function custom_product_description($atts){
 add_shortcode( 'custom_product_description', 'custom_product_description' );
 
 function my_theme_name_scripts() {
-  // wp_enqueue_style( 'mystyle', get_stylesheet_directory_uri() . '/css/style.css' );
-  // wp_enqueue_style( 'product', get_stylesheet_directory_uri() . '/css/product-page.css' );
-  // wp_enqueue_style( 'type', get_stylesheet_directory_uri() . '/css/type.css' );
-  // wp_enqueue_style( 'site-header', get_stylesheet_directory_uri() . '/css/site-header.css' );
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css' );
   wp_enqueue_script( 'my-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true );
 
@@ -67,7 +88,10 @@ function my_theme_name_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'my_theme_name_scripts', 99 );
 
-
-
+// Custom exept length
+function custom_exerpt_length() {
+	return 25;
+}
+add_filter('excerpt_length', 'custom_exerpt_length');
 
 ?>

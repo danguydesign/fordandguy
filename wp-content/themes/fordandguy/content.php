@@ -11,8 +11,6 @@
 
 	<?php
 
-	remove_action( 'storefront_loop_post', 'storefront_post_header', 10 );
-
 	/**
 	 * Functions hooked in to storefront_loop_post action.
 	 *
