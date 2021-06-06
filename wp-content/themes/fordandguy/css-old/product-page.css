@@ -103,8 +103,8 @@ input[type="submit"].alt, .button.alt,
 button.alt:hover, input[type="button"].alt:hover,
 input[type="reset"].alt:hover, input[type="submit"].alt:hover,
 .button.alt:hover, .widget-area .widget a.button.alt:hover {
-    background-color: #f36a25;
-    border-color: #f36a25;
+    background-color: $primary-color;
+    border-color: $primary-color;
     color: #ffffff;
 }
 
@@ -151,13 +151,13 @@ input[type="reset"].alt:hover, input[type="submit"].alt:hover,
 }
 
 .wcpa_form_outer .wcpa_form_item .wcpa_radio label:hover {
-  color: #f36a25;
-  border: 1px solid #f36a25;
+  color: $primary-color;
+  border: 1px solid $primary-color;
 }
   .wcpa_form_outer .wcpa_form_item .wcpa_radio label:focus {
     color: #fff;
-    background-color: #f36a25;
-    border: 1px solid #f36a25;
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
   }
 
 .wcpa_form_outer .wcpa_form_item input[type="radio"]:checked+label {
@@ -166,7 +166,7 @@ input[type="reset"].alt:hover, input[type="submit"].alt:hover,
 }
   .wcpa_form_outer .wcpa_form_item input[type="radio"]:focus+label {
     color: white;
-    background: #f36a25;
+    background: $primary-color;
   }
 
 
@@ -203,7 +203,7 @@ a.accordion {
   transition: all .2s ease-in-out;
 }
 .accordion h3:hover {
-  color: #f36a25;
+  color: $primary-color;
 }
 
 .accordion h3::after {
@@ -237,7 +237,7 @@ a.accordion {
 }
 
 .acc-content h4 {
-  color: #f36a25;
+  color: $primary-color;
   font-family: 'DM serif', serif;
   font-size: 1rem;
   font-weight: 400;
@@ -454,7 +454,7 @@ p.stars.selected a.active:before,
 p.stars:hover a:before,
 p.stars.selected a:not(.active):before,
 p.stars.selected a.active:before {
-    color: #f36a25;
+    color: $primary-color;
 }
 
 /* Reviews pph */

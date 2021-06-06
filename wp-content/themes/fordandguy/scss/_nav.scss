@@ -1,6 +1,7 @@
 /**
  * Header
  */
+
 header.site-header {
   background-color: $white;
   color: $black;
@@ -12,6 +13,7 @@ header.site-header {
   border-bottom: 2px solid #333;
 
   .storefront-primary-navigation {
+
     @include break(s) {
         clear: both;
         &::before,
@@ -31,25 +33,6 @@ header.site-header {
           max-height: 9999px;
         }
       }
-
-      & ul {
-        margin-left: 0;
-        list-style: none;
-        margin-bottom: 0;
-        ul {
-          display: block;
-          margin-left: 1.41575em;
-        }
-        li a {
-          padding: 0.875em 0;
-          display: block;
-          line-height: 1.2;
-          a:hover {
-            color: #e6e6e6;
-          }
-        }
-      }
-
 
       &.toggled {
         .handheld-navigation {
@@ -71,7 +54,6 @@ header.site-header {
          }
        }
 
-
     }
   }
 
@@ -89,10 +71,18 @@ header.site-header {
     margin-bottom: 0; }
 
   .site-branding {
-    float: left;
+    position: absolute;
     margin-bottom: 0;
-    height: auto;
-    width: auto;
+
+    .custom-logo-link {
+      display: inline-block;
+      max-width: 185.875px;
+      height: 65px;
+
+      &:focus-visible {
+        background-color: $primary-color;
+      }
+    }
 
     .custom-logo {
       position: absolute !important;
@@ -102,8 +92,7 @@ header.site-header {
       margin: 0;
       @include break(s){
         height: 60px;
-        padding: 22px 20px 5px;
-        margin-bottom: 5px;
+        padding: 22px 20px 8px;
       }
     }
 
@@ -136,26 +125,9 @@ header.site-header {
 
 
 
-// .home.blog .site-header,
-// .home.page:not(.page-template-template-homepage) .site-header,
-// .home.post-type-archive-product .site-header {
-//   margin-bottom: 4.235801032em; }
-//
-// .no-wc-breadcrumb .site-header {
-//   margin-bottom: 4.235801032em; }
-//
-// .no-wc-breadcrumb.page-template-template-homepage .site-header {
-//   margin-bottom: 0; }
-//
-// .header-widget-region {
-//   position: relative;
-//   z-index: 99; }
-
-
 /* ===============
  Mobile Header (Nav)
  =============== */
-
 
 .handheld-navigation {
   overflow: hidden;
@@ -168,24 +140,32 @@ header.site-header {
   transform: translateX(100%);
   -webkit-transition: all, ease, 0.8s;
   transition: all, ease, 0.8s;
-  background-color: white;
+  background-color: $white;
   clear: both;
   ul.menu {
-    margin-top: 65px;
     overflow: scroll;
-    li {
+    margin-top: 65px;
+    margin-bottom: 0;
+    margin-left: 0;
+    list-style: none;
+    > li {
       position: relative;
       padding: 0;
     }
-    a {
+    li > a {
+      display: block;
+      line-height: 1.2;
       background: #eee;
+      padding: 15px;
       margin: 0 12px 12px;
-      padding: 15px 15px;
+      a:hover {
+        color: $primary-color;
+      }
     }
-    & .sub-menu {
+    .sub-menu {
+      display: block;
       visibility: hidden;
       opacity: 0;
-
       overflow: hidden;
       height: auto;
       width: 100%;
@@ -195,48 +175,55 @@ header.site-header {
       -webkit-transition: all, ease, 0.8s;
       transition: all, ease, 0.8s;
       z-index: +1;
-      a {
+
+      li {
+        padding: 0;
+        margin: 2px 0 0;
+      }
+
+      li a {
         font-size: .8rem;
-        background: #f6f6f6;
-        border-top: 2px solid #ffffff;
+        background: $light-grey;
         margin: 0;
       }
     }
-    & .sub-menu.toggled-on {
+    .sub-menu.toggled-on {
       overflow: scroll;
       max-height: 100vh;
     }
   }
+
+
+
   & .dropdown-toggle {
+    position: absolute;
+    display: block;
+    background-color: $black;
     top: 0;
     right: 0;
     width: 60px;
     height: 49px;
     margin-right: 12px;
-    border-left: 2px solid #fff;
-    background: #ddd;
+  }
+  & ul.menu .sub-menu.toggled-on {
+    visibility: visible;
+    max-height: 9999px;
+    opacity: 1;
   }
 
   & ul.menu li button::after {
     -webkit-transition: all, ease, 0.8s;
     transition: all, ease, 0.8s;
+    color: $white;
+
   }
   & ul.menu li button.toggled-on::after {
     -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
             transform: rotate(180deg);
-          }
+  }
 
-  & ul.menu .sub-menu.toggled-on {
-    visibility: visible;
-    max-height: 9999px;
-    opacity: 1; }
-  & .dropdown-toggle {
-    background: transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block; }
+
 
 }
 
@@ -300,6 +287,7 @@ button.menu-toggle {
 // end mob nav
 
 
+
 /* ===============
    Desktop Header (Nav)
    =============== */
@@ -311,6 +299,40 @@ button.menu-toggle {
     .secondary-navigation {
       display: block;
     }
+
+    .primary-navigation {
+      ul.menu,
+      ul.nav-menu {
+        li {
+          position: relative;
+          &:hover::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background-color: $primary-color;
+            margin-bottom: -2px;
+          }
+
+        }
+        & > li > a {
+          position: relative;
+          // background: white;
+          padding: 15px;
+          margin: 0;
+          height: 100%;
+         &:hover,
+         &:focus {
+           background-color: transparent;
+           color: $primary-color;
+         }
+       }
+      }
+    }
+
     .site-branding {
       display: block;
       width: 100%;
@@ -391,180 +413,6 @@ button.menu-toggle {
 
   }
 
-  // .site-branding,
-  // .site-search,
-  // .site-header-cart,
-  // .site-logo-anchor,
-  // .site-logo-link,
-  // .custom-logo-link {
-  //   margin-bottom: 1.41575em; }
-  // .site-header .subscribe-and-connect-connect {
-  //   float: right;
-  //   margin-bottom: 1em; }
-  // .site-header .subscribe-and-connect-connect .icons {
-  //   list-style: none;
-  //   margin: 0; }
-  // .site-header .subscribe-and-connect-connect .icons a {
-  //   font-size: 1em !important; }
-  // .site-header .subscribe-and-connect-connect .icons li {
-  //   margin: 0 0 0 0.5407911001em !important;
-  //   display: inline-block; }
-
-
-// /**
-//  * Menus
-//  *
-//  * 1 - We have to use a `left` declaration so that dropdowns are revealed when tabbed.
-//  */
-// .menu-toggle,
-// .handheld-navigation,
-// .main-navigation.toggled .handheld-navigation,
-// .main-navigation.toggled div.menu {
-//   display: none; }
-// .primary-navigation {
-//   display: block; }
-// .main-navigation,
-// .secondary-navigation {
-//   clear: both;
-//   display: block;
-//   width: 100%; }
-//   .main-navigation ul,
-//   .secondary-navigation ul {
-//     list-style: none;
-//     margin: 0;
-//     padding-left: 0;
-//     display: block; }
-//     .main-navigation ul li,
-//     .secondary-navigation ul li {
-//       position: relative;
-//       display: inline-block;
-//       text-align: left; }
-//       .main-navigation ul li a,
-//       .secondary-navigation ul li a {
-//         display: block; }
-//         .main-navigation ul li a::before,
-//         .secondary-navigation ul li a::before {
-//           display: none; }
-//       .main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul,
-//       .secondary-navigation ul li:hover > ul,
-//       .secondary-navigation ul li.focus > ul {
-//         left: 0;
-//         display: block; }
-//         .main-navigation ul li:hover > ul li > ul, .main-navigation ul li.focus > ul li > ul,
-//         .secondary-navigation ul li:hover > ul li > ul,
-//         .secondary-navigation ul li.focus > ul li > ul {
-//           left: -9999px;
-//           /* 1 */ }
-//           .main-navigation ul li:hover > ul li > ul.sub-menu--is-touch-device, .main-navigation ul li.focus > ul li > ul.sub-menu--is-touch-device,
-//           .secondary-navigation ul li:hover > ul li > ul.sub-menu--is-touch-device,
-//           .secondary-navigation ul li.focus > ul li > ul.sub-menu--is-touch-device {
-//             display: none;
-//             left: 0; }
-//         .main-navigation ul li:hover > ul li:hover > ul, .main-navigation ul li:hover > ul li.focus > ul, .main-navigation ul li.focus > ul li:hover > ul, .main-navigation ul li.focus > ul li.focus > ul,
-//         .secondary-navigation ul li:hover > ul li:hover > ul,
-//         .secondary-navigation ul li:hover > ul li.focus > ul,
-//         .secondary-navigation ul li.focus > ul li:hover > ul,
-//         .secondary-navigation ul li.focus > ul li.focus > ul {
-//           left: 100%;
-//           top: 0;
-//           display: block; }
-//     .main-navigation ul ul,
-//     .secondary-navigation ul ul {
-//       float: left;
-//       position: absolute;
-//       top: 100%;
-//       z-index: 99999;
-//       left: -9999px;
-//       /* 1 */ }
-//       .main-navigation ul ul.sub-menu--is-touch-device,
-//       .secondary-navigation ul ul.sub-menu--is-touch-device {
-//         display: none;
-//         left: 0; }
-//       .main-navigation ul ul li,
-//       .secondary-navigation ul ul li {
-//         display: block; }
-//         .main-navigation ul ul li a,
-//         .secondary-navigation ul ul li a {
-//           width: 200px; }
-// ul.menu li.current-menu-item > a {
-//   color: #43454b; }
-
-
-/**
- * Primary Navigation
- */
-
-// .main-navigation div.menu {
-//   display: block; }
-// .main-navigation ul.menu,
-// .main-navigation ul.nav-menu {
-//   max-height: none;
-//   overflow: visible;
-//   margin-left: -1em;
-//   -webkit-transition: none;
-//   transition: none; }
-//   .main-navigation ul.menu > li > a,
-//   .main-navigation ul.nav-menu > li > a {
-//     padding: 1.618em 1em; }
-//   .main-navigation ul.menu > li.menu-item-has-children:hover::after, .main-navigation ul.menu > li.page_item_has_children:hover::after,
-//   .main-navigation ul.nav-menu > li.menu-item-has-children:hover::after,
-//   .main-navigation ul.nav-menu > li.page_item_has_children:hover::after {
-//     display: block; }
-//   .main-navigation ul.menu ul,
-//   .main-navigation ul.nav-menu ul {
-//     margin-left: 0; }
-//     .main-navigation ul.menu ul li a,
-//     .main-navigation ul.nav-menu ul li a {
-//       padding: 0.875em 1.41575em;
-//       font-weight: 400;
-//       font-size: 0.875em; }
-//     .main-navigation ul.menu ul li:last-child,
-//     .main-navigation ul.nav-menu ul li:last-child {
-//       border-bottom: 0; }
-//     .main-navigation ul.menu ul ul,
-//     .main-navigation ul.nav-menu ul ul {
-//       margin-left: 0;
-//       box-shadow: none; }
-//     .main-navigation ul.menu ul a:hover,
-//     .main-navigation ul.menu ul li:hover > a,
-//     .main-navigation ul.menu ul li.focus,
-//     .main-navigation ul.nav-menu ul a:hover,
-//     .main-navigation ul.nav-menu ul li:hover > a,
-//     .main-navigation ul.nav-menu ul li.focus {
-//       background-color: rgba(0, 0, 0, 0.025); }
-// .main-navigation a {
-//   padding: 0 1em 2.2906835em; }
-
-
-// /**
-//  * Secondary Navigation
-//  */
-// .secondary-navigation {
-//   margin: 0 0 1.618em;
-//   width: auto;
-//   clear: none;
-//   line-height: 1; }
-//   .secondary-navigation .menu {
-//     font-size: 0.875em;
-//     width: auto;
-//     float: right; }
-//     .secondary-navigation .menu > li:hover > a {
-//       text-decoration: none; }
-//     .secondary-navigation .menu ul a {
-//       padding: 0.326em 0.875em;
-//       background: rgba(0, 0, 0, 0.05); }
-//     .secondary-navigation .menu ul li:first-child a {
-//       padding-top: 1em; }
-//     .secondary-navigation .menu ul li:last-child a {
-//       padding-bottom: 1em; }
-//     .secondary-navigation .menu ul ul {
-//       margin-top: -0.6180469716em; }
-//     .secondary-navigation .menu a {
-//       padding: 1em 0.875em;
-//       color: #737781;
-//       font-weight: 400; }
-//       .secondary-navigation .menu a:hover {
-//         text-decoration: none; }
 
 .woocommerce-active .site-header .site-branding,
 .woocommerce-active .site-header .main-navigation {
@@ -595,7 +443,7 @@ button.menu-toggle {
   border-bottom: 2px solid transparent;
   margin-bottom: 0;}
     .site-search .widget_product_search form input:focus {
-      border-bottom: 2px solid #f36a25;
+      border-bottom: 2px solid $primary-color;
     }
 
 .woocommerce-active .site-header .site-search {
@@ -627,26 +475,6 @@ button.menu-toggle {
   margin: 0;
 }
 
-.main-navigation {
-  ul.menu,
-  ul.nav-menu {
-    & > li > a {
-      background: white;
-      padding: 17px 15px;
-      margin: 0;
-     &:hover,
-     &:focus {
-       color: $primary-color;
-       margin-bottom: -2px;
-       border-bottom: 2px solid $primary-color;
-     }
-   }
-  }
-
-
-}
-
-
 .main-navigation ul.menu > li.menu-item-has-children > a::after,
 .main-navigation ul.menu > li.page_item_has_children > a::after,
 .main-navigation ul.nav-menu > li.menu-item-has-children > a::after,
@@ -668,7 +496,7 @@ button.menu-toggle {
 .main-navigation ul.menu ul.sub-menu li:last-child { border-bottom: none; }
   .main-navigation ul.menu ul.sub-menu li a { background: #f6f6f6; }
     .main-navigation ul.menu ul.sub-menu li a:hover { background: #eee; }
-    .main-navigation ul.menu ul.sub-menu li a:focus { color: #f36a25; text-decoration: underline; }
+    .main-navigation ul.menu ul.sub-menu li a:focus { color: $primary-color; text-decoration: underline; }
 
 .site-header-cart a.cart-contents {
   padding: 14px 0;

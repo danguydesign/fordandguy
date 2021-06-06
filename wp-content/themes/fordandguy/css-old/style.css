@@ -70,10 +70,10 @@ div.wrapper {
   box-shadow: none !important;
 }
   .hentry .entry-content .wp-block-button:not(.is-style-squared) .wp-block-button__link:hover {
-   background-color: #f36a25;
+   background-color: $primary-color;
   }
   .hentry .entry-content .wp-block-button:not(.is-style-squared) .wp-block-button__link:focus {
-   outline: 2px solid #f36a25;
+   outline: 2px solid $primary-color;
   }
 
 .hentry .entry-content a:not(.button):not(.components-button) {
@@ -426,11 +426,11 @@ a:focus {
   background-color: #e7c7ae;
 }
 button:focus {
-  outline: 2px solid #f36a25;
+  outline: 2px solid $primary-color;
 }
 input:focus, input[type="search"]:focus, textarea:focus {
   outline: none;
-  border-bottom: 2px solid #f36a25;
+  border-bottom: 2px solid $primary-color;
 }
 
 .added_to_cart.alt, .added_to_cart, .widget a.button.checkout {
@@ -440,8 +440,8 @@ input:focus, input[type="search"]:focus, textarea:focus {
 }
 
 .added_to_cart.alt:hover, .added_to_cart:hover, .widget a.button.checkout:hover {
-    background-color: #f36a25;
-    border-color: #f36a25;
+    background-color: $primary-color;
+    border-color: $primary-color;
     color: #ffffff;
 }
 
@@ -495,7 +495,7 @@ input:focus, input[type="search"]:focus, textarea:focus {
     border-bottom: 2px solid transparent;
     margin-bottom: 0;}
       .site-search .widget_product_search form input:focus {
-        border-bottom: 2px solid #f36a25;
+        border-bottom: 2px solid $primary-color;
       }
 
   .woocommerce-active .site-header .site-search {
@@ -533,11 +533,11 @@ input:focus, input[type="search"]:focus, textarea:focus {
     background: white;
   }
     .main-navigation ul.menu > li > a:hover, .main-navigation ul.nav-menu > li > a:hover {
-      color: #f36a25;
+      color: $primary-color;
     }
     .main-navigation ul.menu > li > a:hover, .main-navigation ul.nav-menu > li > a:focus {
-      color: #f36a25;
-      border-bottom: 2px solid #f36a25;
+      color: $primary-color;
+      border-bottom: 2px solid $primary-color;
       margin-bottom: -2px;
     }
 
@@ -563,7 +563,7 @@ input:focus, input[type="search"]:focus, textarea:focus {
     .main-navigation ul.menu ul.sub-menu li:last-child { border-bottom: none; }
       .main-navigation ul.menu ul.sub-menu li a { background: #f6f6f6; }
         .main-navigation ul.menu ul.sub-menu li a:hover { background: #eee; }
-        .main-navigation ul.menu ul.sub-menu li a:focus { color: #f36a25; text-decoration: underline; }
+        .main-navigation ul.menu ul.sub-menu li a:focus { color: $primary-color; text-decoration: underline; }
 
   .site-header-cart a.cart-contents {
     padding: 14px 0;
@@ -646,7 +646,7 @@ input:focus, input[type="search"]:focus, textarea:focus {
  }
 
  .footer-icon svg { fill: #222; }
- .footer-icon svg:hover { fill: #f36a25; }
+ .footer-icon svg:hover { fill: $primary-color; }
 
  .copyright {
    padding: 20px;
@@ -875,7 +875,7 @@ ul.products li.product:focus::after, .wc-block-grid__product:focus::after {
     .hentry .entry-content .wc-block-grid__products .wc-block-grid__product > a:focus div,
     .hentry .entry-content ul.products li.product > a:focus div,
     .product-cards__container .product-card__link:focus h3 {
-      color: #f36a25;
+      color: $primary-color;
       text-decoration: underline;
     }
 
@@ -975,7 +975,7 @@ div.wpforms-container-full .wpforms-form input:focus,
 div.wpforms-container-full .wpforms-form select:focus,
 div.wpforms-container-full .wpforms-form textarea:focus {
   border: none;
-  border-bottom: 2px solid #f36a25;
+  border-bottom: 2px solid $primary-color;
 }
 
 div.wpforms-container-full .wpforms-form input[type=submit],
@@ -998,7 +998,7 @@ div.wpforms-container-full .wpforms-form .wpforms-page-button {
 div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 div.wpforms-container-full .wpforms-form button[type=submit]:hover,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
-  background-color: #f36a25;
+  background-color: $primary-color;
   border: none;
 }
 

@@ -78,7 +78,7 @@ function my_theme_name_scripts() {
   wp_enqueue_script( 'my-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true );
 
 	// Remove storefront styles
-	wp_dequeue_style( 'storefront-style' );
+	// wp_dequeue_style( 'storefront-style' );
 
 	// Swap navigation script
 	wp_dequeue_script( 'storefront-navigation'  );
