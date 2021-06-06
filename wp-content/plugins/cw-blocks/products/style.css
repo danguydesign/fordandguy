@@ -51,7 +51,7 @@
 	text-decoration: underline;
 }
 		.product-card .product-card__details .product-card__button:hover {
-			color: #f36a25;
+			color: $primary-color;
 		}
 
 
