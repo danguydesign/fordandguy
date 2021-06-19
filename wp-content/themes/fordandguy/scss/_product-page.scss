@@ -13,8 +13,7 @@
 
 .single-product div.product {
   .images,
-  .summary,
-  .woocommerce-product-gallery {
+  .summary {
       margin-bottom: 24px;
   }
 
@@ -530,46 +529,6 @@ p.stars.selected a.active:before {
 }
 
 .single-product div.product {
-
-  .woocommerce-product-gallery {
-    width: 100%;
-    @include break(s){
-      width: 50%;
-      margin-right: 0;
-    }
-    @include break(m){
-      width: 60%;
-    }
-
-    figure.woocommerce-product-gallery__wrapper {
-      display: flex;
-      overflow: scroll;
-      width: 100%;
-      @include break(s){
-        flex-direction: column;
-      }
-      @include break(m){
-        flex-direction: row;
-        flex-wrap: wrap;
-        overflow: hidden;
-      }
-      .woocommerce-product-gallery__image {
-        min-width: 100vw;
-        @include break(s){
-          min-width: 0;
-          width: 100%;
-          padding: 0 0 20px 20px;
-        }
-        @include break(m){
-          width: 50%;
-          padding: 0 0 20px 20px;
-
-        }
-
-      }
-
-    }
-  }
 
   .summary {
     @include break(m){
