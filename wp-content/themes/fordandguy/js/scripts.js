@@ -11,6 +11,7 @@ var acc = document.getElementsByClassName("accordion");
       panel.classList.toggle("closed");
     }
   }
+  acc[0].onclick();
   acc[1].onclick();
   acc[2].onclick();
 }

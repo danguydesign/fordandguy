@@ -288,7 +288,7 @@ section.related ul.products::after {
 section.up-sells ul.products li.product,
 section.related ul.products li.product {
   min-width: 250px;
-  margin-right: 10px !important;
+  margin-right: 15px !important;
 }
 
 section.up-sells ul.products::after,
@@ -327,8 +327,11 @@ section.related ul.products::after {
   .single-product div.product .summary {
     width: 50%;
     padding: 0 40px;
-    @include break(l){
+    @include break(m){
       padding: 0 50px;
+    }
+    @include break(l){
+      padding: 0 60px;
     }
   }
 
@@ -513,14 +516,13 @@ p.stars.selected a.active:before {
 
     .breadcrumb-separator {
       color: $grey;
+      display: inline;
+      padding: 0 2px;
+      font-family: $sans-serif;
+      font-weight: $normal;
+      line-height: inherit;
       &::after {
-        color: inherit;
-        font-family: $sans-serif;
-        font-weight: $normal;
-        line-height: inherit;
-        vertical-align: baseline;
-        content: "/";
-        opacity: 1;
+        display: none;
       }
     }
   }

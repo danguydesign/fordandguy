@@ -67,7 +67,7 @@ if ( post_password_required() ) {
 				<a class="accordion"><h3>Product Details</h3></a>
 				<div class="acc-panel">
 					<div class="acc-content">
-						<?php  defined( 'ABSPATH' ) || exit;
+						<?php defined( 'ABSPATH' ) || exit;
 							global $post;
 						?>
 						<?php the_content(); ?>

@@ -26,7 +26,7 @@ const enableSwiper = function() {
       // keyboardControl: true,
       grabCursor: true,
       slidesPerView: 1,
-      spaceBetween: 30,
+      spaceBetween: 5,
       loop: false,
       pagination: {
         el: ".swiper-pagination",
