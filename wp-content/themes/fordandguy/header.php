@@ -48,12 +48,11 @@
 		 * @hooked storefront_primary_navigation_wrapper_close - 68
 		 */
 
-//comment out if u want
 		do_action( 'storefront_header' );
 		?>
 
 		<?php
-		//do_action( 'storefront_header_cart' );
+		// do_action( 'storefront_header_cart' );
 		// storefront_header_cart();
 		?>
 

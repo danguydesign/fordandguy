@@ -1,6 +1,6 @@
 // breakpoint where swiper will be destroyed
 // and switches to a dual-column layout
-const breakpoint = window.matchMedia( '(min-width:768px)' );
+const breakpoint = window.matchMedia( '(min-width:1024px)' );
 // keep track of swiper instances to destroy later
 let mySwiper;
 const breakpointChecker = function() {
@@ -24,7 +24,7 @@ const enableSwiper = function() {
       // centeredSlides: true,
       // a11y: true,
       // keyboardControl: true,
-      grabCursor: true,
+      // grabCursor: true,
       slidesPerView: 1,
       spaceBetween: 5,
       loop: false,
@@ -46,3 +46,8 @@ const enableSwiper = function() {
 breakpoint.addListener(breakpointChecker);
 // kickstart
 breakpointChecker();
+
+const imgGal = document.querySelector('.woocommerce-product-gallery');
+if (imgGal){
+  imgGal.style.overflowX = 'hidden';
+}
