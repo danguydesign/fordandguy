@@ -12,7 +12,7 @@
   padding: 0;
   margin: 0;
   border-bottom: 2px solid #333;
-  z-index: 999;
+  z-index: 50;
   @include break(s){
     flex-direction: column;
   }
@@ -85,14 +85,64 @@
    }
 
    .site-search {
-     width: 35%;
-     padding: 20px 20px 0 0;
+     display: flex;
+     justify-content: flex-end;
+     padding: 0;
      margin-bottom: 0;
-     // @include break(m){
-     //   width: 40%;
-     // }
+
+     @include break(s){
+       width: 35%;
+       padding: 18px 20px 0;
+     }
+     .search-button {
+       display: block;
+       position: relative;
+       background-color: $white;
+       width: auto;
+       height: 100%;
+       padding: 22.5px 15px;
+       margin: 0;
+       z-index: 54;
+       transform: translateX(0);
+       transition: transform .5s ease;
+       cursor: pointer;
+       @include break(s){
+         display: none;
+       }
+       &:hover {
+         background-color: $tertiary-color;
+       }
+       &::before {
+         display: block;
+         top: 0;
+         left: 0;
+         content: "";
+         width: 20px;
+         height: 20px;
+         background-image: url(../img/search.svg);
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: center center;
+       }
+     }
 
      .widget_product_search {
+       display: block;
+       position: absolute;
+       background-color: $white;
+       width: 100%;
+       top: 0;
+       left: 0;
+       padding: 65px 20px 20px;
+       z-index: 53;
+       transform: translateX(100%);
+       transition: transform .5s ease-in-out;
+       @include break(s){
+         position: relative;
+         display: block;
+         padding: 0;
+         transform: translateX(0);
+       }
 
        form {
          &::before {
@@ -123,18 +173,136 @@
      }
    }
 
+   .site-search.toggled {
+     display: flex;
+     justify-content: flex-end;
+     padding: 0;
+     margin-bottom: 0;
+     display: block;
+
+     .search-button {
+       transform: translateX(100px);
+       &::before {
+         background-image: url(../img/close.svg);
+       }
+     }
+
+     .widget_product_search {
+       display: block;
+       height: 100vh;
+       transform: translateX(0);
+     }
+   }
+
+
    .site-header-cart {
-     width: 30%;
-     // @include break(m){
-     //   width: 25%;
-     // }
+     z-index: 51;
+     @include break(s){
+       width: 30%;
+     }
+     .fg-cart {
+       display: flex;
+       justify-content: flex-end;
+       padding: 20.5px 15px;
+       @include break(s){
+         padding: 25px 20px 20px;
+       }
+       &:hover {
+         background-color: $tertiary-color;
+       }
+       .count {
+         display: block;
+         color: $black;
+         opacity: 1;
+         position: relative;
+         padding-top: 5px;
+         width: 20px;
+         height: 24px;
+         font-size: 12px;
+         font-weight: 600;
+         text-align: center;
+         &::before {
+           position: absolute;
+           display: block;
+           content: '';
+           background-image: url("../img/bag.svg");
+           background-size: contain;
+           background-position: 50%;
+           background-repeat: no-repeat;
+           width: 100%;
+           height: 100%;
+           top: 0;
+           left: 0;
+         }
+       }
+     }
+     //old version
      a.cart-contents {
+       display: block;
        text-align: right;
-       padding: 25px 0 10px;
+       padding: 20px 0 10px;
        margin-right: 20px;
+       min-width: 100px;
+       @include break(s){
+         padding: 25px 0 10px;
+       }
        &:focus { background-color: #e7c7ae; }
+       &::after {
+         display: none;
+         // -webkit-font-smoothing: antialiased;
+         // -moz-osx-font-smoothing: grayscale;
+         // display: inline-block;
+         // font-style: normal;
+         // font-variant: normal;
+         // font-weight: normal;
+         // line-height: 1;
+         // font-family: 'Font Awesome 5 Free';
+         // font-weight: 900;
+         // line-height: inherit;
+         // vertical-align: baseline;
+         // content: "\f291";
+         // height: 1em;
+         // line-height: 1.618;
+         // float: none;
+         // margin-left: 5px;
+         // margin-right: 10px;
+         @include break(s){
+           margin-right: 0;
+         }
+       }
+       .amount {
+         display: none;
+         @include break(s){
+           display: inline-block;
+         }
+       }
        span.count {
-         margin-right: 10px;
+         display: inline-block;
+         color: $black;
+         opacity: 1;
+         position: relative;
+         padding: 3px 4px;
+         width: 40px;
+         height: 30px;
+         font-size: 12px;
+         font-weight: 500;
+         &:hover {
+           background-color: $light-grey;
+           border-radius: 20px;
+         }
+       }
+       span.count::before {
+         position: absolute;
+         display: block;
+         content: '';
+         background-image: url("../img/bag.svg");
+         background-size: contain;
+         background-position: center;
+         background-repeat: no-repeat;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
        }
      }
    }
@@ -228,8 +396,8 @@
   width: 80%;
   max-height: none;
   transform: translateX(100%);
-  -webkit-transition: all, ease, 0.8s;
-  transition: all, ease, 0.8s;
+  -webkit-transition: all, ease, 0.5s;
+  transition: all, ease, 0.5s;
   background-color: $white;
   clear: both;
   ul.menu {
@@ -318,7 +486,6 @@
 }
 
 button.menu-toggle {
-
   cursor: pointer;
   color: $black;
   text-align: left;
@@ -329,8 +496,12 @@ button.menu-toggle {
   padding: 20px 20px 20px 40px;
   font-size: 16px;
   font-weight: 500;
-  z-index: +1;
+  z-index: 52;
   background-color: inherit;
+  &:hover {
+    background-color: $tertiary-color;
+  }
+
   &::before,
   &::after,
   & span::before {
@@ -343,19 +514,19 @@ button.menu-toggle {
     transition: all, ease, 0.2s;
     border-radius: 0;
     height: 2px;
-    width: 20px;
-    left: 10px;
+    width: 24px;
+    right: 20px;
     background-color: $black;
   }
   &::before {
-    -webkit-transform: translateY(-4px);
-        -ms-transform: translateY(-4px);
-            transform: translateY(-4px);
+    -webkit-transform: translateY(-6px);
+        -ms-transform: translateY(-6px);
+            transform: translateY(-6px);
           }
   &::after {
-    -webkit-transform: translateY(4px);
-        -ms-transform: translateY(4px);
-            transform: translateY(4px);
+    -webkit-transform: translateY(6px);
+        -ms-transform: translateY(6px);
+            transform: translateY(6px);
           }
 }
 
@@ -411,6 +582,7 @@ button.menu-toggle {
         & > li > a {
           position: relative;
           // background: white;
+          line-height: 1.2;
           padding: 15px;
           margin: 0;
           height: 100%;

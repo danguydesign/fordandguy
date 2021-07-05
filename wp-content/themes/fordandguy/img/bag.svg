@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bag</title>
+    <g id="Bag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5.5,7 L5.5,3 C5.5,1.8954305 6.3954305,1 7.5,1 L12.5,1 C13.6045695,1 14.5,1.8954305 14.5,3 L14.5,7 L14.5,7" id="Path-9-Copy" stroke="#222222" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M19,5 L19,19 C19,20.1045695 18.5522847,21.1045695 17.8284271,21.8284271 C17.1045695,22.5522847 16.1045695,23 15,23 L15,23 L5,23 C3.8954305,23 2.8954305,22.5522847 2.17157288,21.8284271 C1.44771525,21.1045695 1,20.1045695 1,19 L1,19 L1,5 L19,5 Z" id="Rectangle" stroke="#222222" stroke-width="2"></path>
+    </g>
+</svg>

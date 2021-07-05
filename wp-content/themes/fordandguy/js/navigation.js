@@ -12,16 +12,18 @@
 	document.addEventListener( 'DOMContentLoaded', function() {
     var pageBody = document.querySelector( 'body' );
 		var container = document.getElementById( 'site-navigation' );
-    var overlayDiv = document.createElement("div");
+    var overlayDiv = document.createElement( 'div' );
     var button = container.querySelector( 'button' );
+    var handMenu = container.querySelector( '#menu-primary-nav-1' );
 
     // Functions
     function openClose() {
       container.classList.toggle( 'toggled' );
       var expanded = container.classList.contains( 'toggled' ) ? 'true' : 'false';
       button.setAttribute( 'aria-expanded', expanded );
-      menu.setAttribute( 'aria-expanded', expanded );
+      handMenu.setAttribute( 'aria-expanded', expanded );
       preventScroll();
+      console.log(handMenu);
     }
 
     function preventScroll() {
@@ -51,7 +53,7 @@
 			return;
 		}
 
-		var menu = container.querySelector( 'ul' );
+    var menu = container.querySelector( '#menu-primary-nav' );
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( ! menu ) {
@@ -60,7 +62,7 @@
 		}
 
 		button.setAttribute( 'aria-expanded', 'false' );
-		menu.setAttribute( 'aria-expanded', 'false' );
+    handMenu.setAttribute( 'aria-expanded', 'false' );
 		menu.classList.add( 'nav-menu' );
 
 		button.addEventListener( 'click', function() {
